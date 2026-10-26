@@ -1,0 +1,8 @@
+# Optional: expose private services on loopback for host-based development.
+services:
+  database:
+    ports: ["127.0.0.1:5433:5432"]
+  backend:
+    ports: ["127.0.0.1:8081:8080"]
+  ml:
+    ports: ["127.0.0.1:8002:8001"]

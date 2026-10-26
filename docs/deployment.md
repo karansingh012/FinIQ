@@ -1,0 +1,11 @@
+# Deployment notes
+
+The Compose stack is suitable for a local demonstration and as a container deployment starting point. It is not a claim of audited production readiness. Only the frontend binds a host port, on loopback by default. Backend, database and inference remain on the private Compose network. Persistent PostgreSQL data is stored in `postgres_data`; do not use `docker compose down -v` if you want to keep it.
+
+For AWS, build the three images in CI, push to ECR, run frontend/API/inference on ECS Fargate in a private VPC, and use RDS PostgreSQL 17 with backups and encryption. Place an HTTPS ALB in front of the frontend. Configure the API’s database URL with TLS (`sslmode=verify-full` and the appropriate trusted certificate), exact frontend origin, and secrets via Secrets Manager. Do not expose inference publicly. Replace the Compose database service with RDS. Configure SMTP/SES for reset delivery, a real sending domain and explicit retention/access policies.
+
+Set `RESET_MODE=smtp` and never development in a publicly deployed environment. Remove ADMIN_PASSWORD from long-lived deployment configuration after the initial admin is provisioned. Enable mail health monitoring only when SMTP is available. The development reset volume is not needed in production.
+
+Application rate limiting is an in-memory fixed one-minute window (30 sensitive requests per client IP). Behind the supplied frontend proxy this is shared by clients on a backend connection source; for a multi-user production deployment add trusted-proxy-aware rate limiting at ALB/WAF or an API gateway, and distributed enforcement if running replicas. Do not blindly trust browser-supplied forwarding headers. Add centralized logging, alerts, backup restoration tests, dependency/image scanning, load testing and a reviewed incident response process before public deployment.
+
+The frontend sets a restrictive CSP in Nginx; Google Fonts are optional with local font fallbacks. Access tokens are in session storage, expire after an hour, and are revoked on logout, password change and role/access change. Harden further with a reviewed refresh/session design if longer sessions are needed. No personal financial transactions or identity document uploads are supported.

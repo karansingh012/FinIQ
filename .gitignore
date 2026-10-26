@@ -1,0 +1,11 @@
+node_modules/
+dist/
+target/
+.venv/
+__pycache__/
+.pytest_cache/
+.env
+.tools/
+.runtime/
+*.log
+.DS_Store
