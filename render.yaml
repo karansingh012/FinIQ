@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: finiq-public
+    runtime: docker
+    region: singapore
+    plan: free
+    repo: https://github.com/karansingh012/FinIQ
+    branch: codex/public-deployment-n8n
+    dockerfilePath: ./deploy/render/Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      - key: POSTGRES_CONNECTION_URI
+        fromDatabase:
+          name: finiq-public-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: RESET_MODE
+        value: disabled
+      - key: PORT
+        value: "10000"
+      - key: ADMIN_EMAIL
+        value: automation@finiq.invalid
+      - key: ADMIN_PASSWORD
+        generateValue: true
+databases:
+  - name: finiq-public-db
+    plan: free
+    region: singapore
+    postgresMajorVersion: "17"
+    databaseName: finiq_public_db
+    user: finiq_public_db_user
+    ipAllowList: []
