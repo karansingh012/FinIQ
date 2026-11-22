@@ -11,18 +11,29 @@ vi.mock("../lib/api", () => ({
 
 function Session() {
   const { user, ready, signOut } = useApp();
-  return <><span>{ready ? user?.name || "Signed out" : "Loading"}</span><button onClick={signOut}>Sign out</button></>;
+  return (
+    <>
+      <span>{ready ? user?.name || "Signed out" : "Loading"}</span>
+      <button onClick={signOut}>Sign out</button>
+    </>
+  );
 }
 
 beforeEach(() => {
   vi.clearAllMocks();
   sessionStorage.setItem("finiq-token", "expired-test-token");
-  api.get.mockResolvedValue({ data: { user: { name: "Test learner", language: "en" } } });
+  api.get.mockResolvedValue({
+    data: { user: { name: "Test learner", language: "en" } },
+  });
 });
 
 it("clears local authentication when logout reports an expired token", async () => {
   api.post.mockRejectedValue({ response: { status: 401 } });
-  render(<Provider><Session /></Provider>);
+  render(
+    <Provider>
+      <Session />
+    </Provider>,
+  );
   await screen.findByText("Test learner");
   fireEvent.click(screen.getByRole("button", { name: "Sign out" }));
   await screen.findByText("Signed out");
@@ -31,7 +42,11 @@ it("clears local authentication when logout reports an expired token", async () 
 
 it("does not claim server logout succeeded during a network failure", async () => {
   api.post.mockRejectedValue(new Error("Offline"));
-  render(<Provider><Session /></Provider>);
+  render(
+    <Provider>
+      <Session />
+    </Provider>,
+  );
   await screen.findByText("Test learner");
   fireEvent.click(screen.getByRole("button", { name: "Sign out" }));
   await waitFor(() => expect(api.post).toHaveBeenCalledWith("/auth/logout"));

@@ -41,6 +41,10 @@ export default function Detail({ scheme = false }) {
     }
     return () => window.speechSynthesis?.cancel();
   }, [id, base, user?.id]);
+  useEffect(() => {
+    window.speechSynthesis?.cancel();
+    setSpeaking(false);
+  }, [lang]);
   async function bookmark() {
     setBusy(true);
     try {
@@ -70,8 +74,8 @@ export default function Detail({ scheme = false }) {
       setSpeaking(false);
       return;
     }
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "en-IN";
+    const utterance = new SpeechSynthesisUtterance(t(text));
+    utterance.lang = lang === "hi" ? "hi-IN" : "en-IN";
     utterance.rate = 0.9;
     utterance.onend = () => setSpeaking(false);
     utterance.onerror = () => {
@@ -94,14 +98,14 @@ export default function Detail({ scheme = false }) {
         {(d) => (
           <>
             <div className="detail-heading">
-              <div className="eyebrow">{scheme ? d.category : d.topic}</div>
-              <h1>{d.title}</h1>
-              <p>{scheme ? d.summary : d.description}</p>
+              <div className="eyebrow">{t(scheme ? d.category : d.topic)}</div>
+              <h1>{t(d.title)}</h1>
+              <p>{t(scheme ? d.summary : d.description)}</p>
               <div className="detail-meta">
-                <Badge>{scheme ? d.region : t(d.difficulty)}</Badge>
+                <Badge>{t(scheme ? d.region : t(d.difficulty))}</Badge>
                 {!scheme && (
                   <span>
-                    <Clock size={16} /> {d.duration} min read
+                    <Clock size={16} /> {t(d.duration)} {t("min read")}
                   </span>
                 )}
                 {user ? (
@@ -118,7 +122,7 @@ export default function Detail({ scheme = false }) {
                   </Button>
                 ) : (
                   <Link to="/login" className="text-link">
-                    Sign in to save
+                    {t("Sign in to save")}
                   </Link>
                 )}
                 {!scheme && "speechSynthesis" in window && (
@@ -134,120 +138,124 @@ export default function Detail({ scheme = false }) {
             </div>
             <div className="detail-grid">
               <article className="article card">
-                {scheme ? (
-                  <>
-                    <div className="info-banner">
-                      {d.verification}. This is an educational summary, not an
-                      official eligibility decision.
-                    </div>
-                    {[
-                      ["Eligibility", d.eligibility],
-                      ["Benefits", d.benefits],
-                      ["Documents", d.documents],
-                      ["How to apply", d.procedure],
-                      ["FAQ", d.faq],
-                    ].map(([title, text]) => (
-                      <section key={title}>
-                        <h2>{t(title)}</h2>
-                        <p>{text}</p>
-                      </section>
-                    ))}
-                    <a
-                      className="button"
-                      href={d.source_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {t("Official source")} <ExternalLink size={16} />
-                    </a>
-                  </>
-                ) : (
-                  <>
-                    <div className="objectives">
-                      <h2>{t("Learning objectives")}</h2>
-                      <ul>
-                        {d.objectives.split(";").map((v) => (
-                          <li key={v}>
-                            <Check size={16} />
-                            {v}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    {d.content.split("\n\n").map((text, i) => (
-                      <p key={i}>{text}</p>
-                    ))}
-                    <div className="example-box">
-                      <span className="eyebrow">PUT IT INTO PERSPECTIVE</span>
-                      <h2>{t("Try this example")}</h2>
-                      <p>{d.example}</p>
-                    </div>
-                    <h2>{t("Key takeaways")}</h2>
-                    <ul className="takeaways">
-                      {d.takeaways.split(";").map((v) => (
-                        <li key={v}>{v}</li>
+                {t(
+                  scheme ? (
+                    <>
+                      <div className="info-banner">
+                        {t(d.verification)}{" "}
+                        {t(
+                          ". This is an educational summary, not an official eligibility decision.",
+                        )}
+                      </div>
+                      {[
+                        ["Eligibility", d.eligibility],
+                        ["Benefits", d.benefits],
+                        ["Documents", d.documents],
+                        ["How to apply", d.procedure],
+                        ["FAQ", d.faq],
+                      ].map(([title, text]) => (
+                        <section key={title}>
+                          <h2>{t(title)}</h2>
+                          <p>{t(text)}</p>
+                        </section>
                       ))}
-                    </ul>
-                    {d.source_url && (
                       <a
-                        className="text-link"
+                        className="button"
                         href={d.source_url}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {t("Official source")} <ExternalLink size={14} />
+                        {t("Official source")} <ExternalLink size={16} />
                       </a>
-                    )}
-                    <div className="lesson-actions">
-                      {user ? (
-                        <>
-                          <Button
-                            busy={busy}
-                            disabled={complete}
-                            onClick={finish}
-                          >
-                            <Check size={17} />
-                            {t(complete ? "Completed" : "Mark complete")}
-                          </Button>
-                          {d.assessmentId > 0 && (
-                            <Link
-                              to={`/assessment/${d.assessmentId}`}
-                              className="button secondary"
-                            >
-                              {t("Take quiz")}
-                            </Link>
-                          )}
-                        </>
-                      ) : (
-                        <Link className="button" to="/register">
-                          Create an account to track progress
-                        </Link>
+                    </>
+                  ) : (
+                    <>
+                      <div className="objectives">
+                        <h2>{t("Learning objectives")}</h2>
+                        <ul>
+                          {d.objectives.split(";").map((v) => (
+                            <li key={v}>
+                              <Check size={16} />
+                              {t(v)}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      {d.content.split("\n\n").map((text, i) => (
+                        <p key={i}>{t(text)}</p>
+                      ))}
+                      <div className="example-box">
+                        <span className="eyebrow">
+                          {t("PUT IT INTO PERSPECTIVE")}
+                        </span>
+                        <h2>{t("Try this example")}</h2>
+                        <p>{t(d.example)}</p>
+                      </div>
+                      <h2>{t("Key takeaways")}</h2>
+                      <ul className="takeaways">
+                        {d.takeaways.split(";").map((v) => (
+                          <li key={v}>{t(v)}</li>
+                        ))}
+                      </ul>
+                      {d.source_url && (
+                        <a
+                          className="text-link"
+                          href={d.source_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {t("Official source")} <ExternalLink size={14} />
+                        </a>
                       )}
-                    </div>
-                  </>
+                      <div className="lesson-actions">
+                        {user ? (
+                          <>
+                            <Button
+                              busy={busy}
+                              disabled={complete}
+                              onClick={finish}
+                            >
+                              <Check size={17} />
+                              {t(complete ? "Completed" : "Mark complete")}
+                            </Button>
+                            {d.assessmentId > 0 && (
+                              <Link
+                                to={`/assessment/${d.assessmentId}`}
+                                className="button secondary"
+                              >
+                                {t("Take quiz")}
+                              </Link>
+                            )}
+                          </>
+                        ) : (
+                          <Link className="button" to="/register">
+                            {t("Create an account to track progress")}
+                          </Link>
+                        )}
+                      </div>
+                    </>
+                  ),
                 )}
               </article>
               <aside>
                 <div className="card side-card">
-                  <span className="eyebrow">KEEP EXPLORING</span>
+                  <span className="eyebrow">{t("KEEP EXPLORING")}</span>
                   <h3>{t("Related resources")}</h3>
                   {d.related.length ? (
                     d.related.map((r) => (
                       <Link key={r.id} to={`/${base}/${r.id}`}>
-                        {r.title} <span>→</span>
+                        {t(r.title)} <span>→</span>
                       </Link>
                     ))
                   ) : (
-                    <p>Explore another topic in the library.</p>
+                    <p>{t("Explore another topic in the library.")}</p>
                   )}
                   <Link to={user ? "/ask" : "/login"}>
                     {t("Ask FinIQ")} <span>→</span>
                   </Link>
                 </div>
                 <div className="reading-note">
-                  {lang === "hi"
-                    ? "मूल सामग्री अंग्रेज़ी में है ताकि उसका अर्थ सुरक्षित रहे।"
-                    : "Take your time. You can always return to this resource."}
+                  {t("Take your time. You can always return to this resource.")}
                 </div>
               </aside>
             </div>

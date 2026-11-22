@@ -20,20 +20,20 @@ export function Landing() {
       <section className="landing-hero">
         <div className="hero-copy">
           <div className="eyebrow">
-            <span className="status-dot" /> FINANCIAL KNOWLEDGE. EVERYDAY
-            CONFIDENCE.
+            <span className="status-dot" />
+            {t("FINANCIAL KNOWLEDGE. EVERYDAY CONFIDENCE.")}
           </div>
           <h1>
-            Your money.
+            {t("Your money.")}
             <br />
-            Your future.
+            {t("Your future.")}
             <br />
-            <em>A little clearer.</em>
+            <em>{t("A little clearer.")}</em>
           </h1>
           <p>
-            Understand the everyday things that make a lifelong difference.
-            Build financial confidence, explore government schemes, and learn at
-            your own pace.
+            {t(
+              "Understand the everyday things that make a lifelong difference. Build financial confidence, explore government schemes, and learn at your own pace.",
+            )}
           </p>
           <div className="hero-actions">
             <Link className="button" to="/register">
@@ -45,73 +45,76 @@ export function Landing() {
           </div>
           <div className="hero-proof">
             <span>
-              <Check size={16} /> Short, practical lessons
+              <Check size={16} />
+              {t("Short, practical lessons")}
             </span>
             <span>
-              <Languages size={16} /> English & हिन्दी
+              <Languages size={16} />
+              {t("English & Hindi")}
             </span>
           </div>
         </div>
         <div
           className="hero-visual"
-          aria-label="An illustrative learning journey"
+          aria-label={t("An illustrative learning journey")}
         >
           <div className="orbit orbit-one" />
           <div className="orbit orbit-two" />
           <div className="visual-tag">
-            <span className="status-dot" /> A SMARTER START
+            <span className="status-dot" />
+            {t("A SMARTER START")}
           </div>
           <div className="illustration-card">
             <div className="flex justify-between items-center">
               <span className="icon-tile">
                 <BookOpen />
               </span>
-              <Badge>YOUR LEARNING PATH</Badge>
+              <Badge>{t("YOUR LEARNING PATH")}</Badge>
             </div>
             <h2>
-              Small steps.
+              {t("Small steps.")}
               <br />
-              Stronger foundations.
+              {t("Stronger foundations.")}
             </h2>
-            <p>From your first budget to your future plans.</p>
+            <p>{t("From your first budget to your future plans.")}</p>
             <div className="path-step">
               <span>01</span>
               <div>
-                <strong>Know where you stand</strong>
-                <small>A short knowledge check</small>
+                <strong>{t("Know where you stand")}</strong>
+                <small>{t("A short knowledge check")}</small>
               </div>
               <Check size={17} />
             </div>
             <div className="path-step active">
               <span>02</span>
               <div>
-                <strong>Make it make sense</strong>
-                <small>Lessons that meet you where you are</small>
+                <strong>{t("Make it make sense")}</strong>
+                <small>{t("Lessons that meet you where you are")}</small>
               </div>
               <ArrowRight size={17} />
             </div>
             <div className="path-step">
               <span>03</span>
               <div>
-                <strong>Put knowledge into practice</strong>
-                <small>Build everyday confidence</small>
+                <strong>{t("Put knowledge into practice")}</strong>
+                <small>{t("Build everyday confidence")}</small>
               </div>
             </div>
           </div>
           <div className="floating-card">
             <ShieldCheck size={24} />
             <span>
-              <strong>Clarity you can build on</strong>
-              <small>Official sources. Simple explanations.</small>
+              <strong>{t("Clarity you can build on")}</strong>
+              <small>{t("Official sources. Simple explanations.")}</small>
             </span>
           </div>
           <div className="visual-caption">
-            A preview of the FinIQ learning experience
+            {t("A preview of the FinIQ learning experience")}
           </div>
         </div>
       </section>
       <section className="principles-strip">
-        <span>BUILT AROUND REAL LIFE</span>
+        <span>{t("BUILT AROUND REAL LIFE")}</span>
         {[
           "Banking & savings",
           "Budgeting & planning",
@@ -120,21 +123,24 @@ export function Landing() {
         ].map((x) => (
           <div key={x}>
             <span className="small-diamond" />
-            {x}
+            {t(x)}
           </div>
         ))}
       </section>
       <section className="public-section">
         <div className="section-title">
-          <div className="eyebrow">LESS OVERWHELM. MORE UNDERSTANDING.</div>
+          <div className="eyebrow">
+            {t("LESS OVERWHELM. MORE UNDERSTANDING.")}
+          </div>
           <h2>
-            Everything connects.
+            {t("Everything connects.")}
             <br />
-            So should your learning.
+            {t("So should your learning.")}
           </h2>
           <p>
-            One thoughtful space to understand financial concepts and find your
-            way through policy information.
+            {t(
+              "One thoughtful space to understand financial concepts and find your way through policy information.",
+            )}
           </p>
         </div>
         <div className="grid-cards">
@@ -162,8 +168,8 @@ export function Landing() {
               <span className="icon-tile">
                 <Icon />
               </span>
-              <h3>{title}</h3>
-              <p>{text}</p>
+              <h3>{t(title)}</h3>
+              <p>{t(text)}</p>
               <ArrowUpRight size={21} />
             </Link>
           ))}
@@ -171,15 +177,20 @@ export function Landing() {
       </section>
       <section className="how-section public-section">
         <div>
-          <div className="eyebrow">A PATH THAT STARTS WITH YOU</div>
+          <div className="eyebrow">{t("A PATH THAT STARTS WITH YOU")}</div>
           <h2>
-            Not sure where to begin?
+            {t("Not sure where to begin?")}
             <br />
-            That’s a good place to start.
+            {t("That\u2019s a good place to start.")}
           </h2>
-          <p>You do not need a finance background. Just a little curiosity.</p>
+          <p>
+            {t(
+              "You do not need a finance background. Just a little curiosity.",
+            )}
+          </p>
           <Link className="text-link" to="/register">
-            Find your starting point <ArrowRight size={17} />
+            {t("Find your starting point")}
+            <ArrowRight size={17} />
           </Link>
         </div>
         <div className="how-steps">
@@ -201,10 +212,10 @@ export function Landing() {
             ],
           ].map(([n, title, text]) => (
             <div key={n}>
-              <span>{n}</span>
+              <span>{t(n)}</span>
               <section>
-                <h3>{title}</h3>
-                <p>{text}</p>
+                <h3>{t(title)}</h3>
+                <p>{t(text)}</p>
               </section>
             </div>
           ))}
@@ -212,8 +223,8 @@ export function Landing() {
       </section>
       <section className="public-section">
         <div className="section-title">
-          <div className="eyebrow">KNOWLEDGE FOR THE EVERYDAY</div>
-          <h2>Make sense of what matters.</h2>
+          <div className="eyebrow">{t("KNOWLEDGE FOR THE EVERYDAY")}</div>
+          <h2>{t("Make sense of what matters.")}</h2>
         </div>
         <div className="topic-grid">
           {[
@@ -225,8 +236,8 @@ export function Landing() {
             "Staying safe online",
           ].map((s, i) => (
             <Link key={s} to="/lessons">
-              <span>0{i + 1}</span>
-              <strong>{s}</strong>
+              <span>0{t(i + 1)}</span>
+              <strong>{t(s)}</strong>
               <ArrowUpRight size={18} />
             </Link>
           ))}
@@ -237,11 +248,12 @@ export function Landing() {
           <Landmark size={30} />
         </div>
         <div>
-          <div className="eyebrow">THE POLICY NAVIGATOR</div>
-          <h2>A clearer route to official information.</h2>
+          <div className="eyebrow">{t("THE POLICY NAVIGATOR")}</div>
+          <h2>{t("A clearer route to official information.")}</h2>
           <p>
-            Explore sourced demonstration records for PPF, NPS and more. Always
-            confirm current conditions with the official provider.
+            {t(
+              "Explore sourced demonstration records for PPF, NPS and more. Always confirm current conditions with the official provider.",
+            )}
           </p>
         </div>
         <Link className="button secondary" to="/schemes">
@@ -250,16 +262,16 @@ export function Landing() {
       </section>
       <section className="public-section faq">
         <div>
-          <div className="eyebrow">A FEW THINGS TO KNOW</div>
+          <div className="eyebrow">{t("A FEW THINGS TO KNOW")}</div>
           <h2>
-            Good questions.
+            {t("Good questions.")}
             <br />
-            Clear answers.
+            {t("Clear answers.")}
           </h2>
           <p>
-            FinIQ is an academic project built for accessible learning. We do
-            not claim measured social impact or publish invented learner
-            statistics.
+            {t(
+              "FinIQ is an academic project built for accessible learning. We do not claim measured social impact or publish invented learner statistics.",
+            )}
           </p>
         </div>
         <div>
@@ -278,18 +290,18 @@ export function Landing() {
             ],
             [
               "Can I learn in Hindi?",
-              "Navigation, forms and core dashboard controls support Hindi. Source material remains in its original language to preserve policy meaning.",
+              "Pages, forms, lessons, quizzes and scheme summaries are available in Hindi. Check current rules at external official sources before applying.",
             ],
           ].map(([q, a]) => (
             <details key={q}>
-              <summary>{q}</summary>
-              <p>{a}</p>
+              <summary>{t(q)}</summary>
+              <p>{t(a)}</p>
             </details>
           ))}
         </div>
       </section>
       <section className="closing-cta">
-        <div className="eyebrow">YOUR NEXT STEP CAN BE A SMALL ONE</div>
+        <div className="eyebrow">{t("YOUR NEXT STEP CAN BE A SMALL ONE")}</div>
         <h2>{t("Financial clarity, one lesson at a time.")}</h2>
         <Link className="button" to="/register">
           {t("Start learning")} <ArrowRight size={18} />
@@ -299,107 +311,105 @@ export function Landing() {
   );
 }
 export function About() {
+  const { t } = useApp();
   return (
     <div className="public-content">
       <Heading
-        eyebrow="THE FINIQ MISSION"
-        title="Understanding opens possibilities."
-        description="Making financial & policy literacy accessible to everyone."
+        eyebrow={t("THE FINIQ MISSION")}
+        title={t("Understanding opens possibilities.")}
+        description={t(
+          "Making financial & policy literacy accessible to everyone.",
+        )}
       />
       <div className="article card">
-        <h2>Why FinIQ exists</h2>
+        <h2>{t("Why FinIQ exists")}</h2>
         <p>
-          Everyday financial decisions often come with unfamiliar words and
-          scattered information. Government policy can be even harder to
-          navigate. FinIQ brings practical learning, sourced scheme discovery
-          and progress tracking into one accessible platform.
+          {t(
+            "Everyday financial decisions often come with unfamiliar words and scattered information. Government policy can be even harder to navigate. FinIQ brings practical learning, sourced scheme discovery and progress tracking into one accessible platform.",
+          )}
         </p>
-        <h2>A learning journey that adapts</h2>
+        <h2>{t("A learning journey that adapts")}</h2>
         <p>
-          A short assessment identifies a starting point. Transparent
-          recommendation rules suggest relevant lessons. Learners can review
-          results, revisit difficult topics and build a consistent habit.
-          English and Hindi interfaces support access without altering official
-          policy details.
+          {t(
+            "A short assessment identifies a starting point. Transparent recommendation rules suggest relevant lessons. Learners can review results, revisit difficult topics and build a consistent habit. English and Hindi interfaces support access without altering official policy details.",
+          )}
         </p>
-        <h2>Built for learners and educators</h2>
+        <h2>{t("Built for learners and educators")}</h2>
         <p>
-          Students, working professionals and citizens can learn independently.
-          Authorized institutional administrators can understand participation
-          within their own institution and use clearly labelled support
-          indicators to offer help.
+          {t(
+            "Students, working professionals and citizens can learn independently. Authorized institutional administrators can understand participation within their own institution and use clearly labelled support indicators to offer help.",
+          )}
         </p>
-        <h2>Honest about its limits</h2>
+        <h2>{t("Honest about its limits")}</h2>
         <p>
-          This academic project uses deterministic classification and engagement
-          baselines because no reliable labelled training dataset was supplied.
-          Policy search retrieves source passages. It does not impersonate an
-          official authority or determine eligibility.
+          {t(
+            "This academic project uses deterministic classification and engagement baselines because no reliable labelled training dataset was supplied. Policy search retrieves source passages. It does not impersonate an official authority or determine eligibility.",
+          )}
         </p>
       </div>
     </div>
   );
 }
 export function Legal({ privacy = false }) {
+  const { t } = useApp();
   return (
     <div className="public-content">
-      <Heading title={privacy ? "Privacy notice" : "Terms of use"} />
+      <Heading title={t(privacy ? "Privacy notice" : "Terms of use")} />
       <div className="article card">
-        {privacy ? (
-          <>
-            <h2>Your learning data</h2>
-            <p>
-              FinIQ stores your account details, profile preferences, assessment
-              responses, lesson activity, saved resources and question history.
-              Passwords are hashed. Optional income information is not required
-              to learn and is not used to classify ability.
-            </p>
-            <h2>Who can access it</h2>
-            <p>
-              You can access your own learning history. Platform administrators
-              manage the service; institutional administrators receive analytics
-              only for learners assigned to their institutions. Contact
-              submissions are visible to platform administrators.
-            </p>
-            <h2>Browser storage</h2>
-            <p>
-              Your access token is kept in session storage and expires after one
-              hour. The selected interface language is saved in local storage.
-              Sign out to revoke your current tokens.
-            </p>
-            <h2>Data requests</h2>
-            <p>
-              Use the contact form to request a correction or account-data
-              deletion. An administrator must review and process that request.
-              This project does not automatically verify identity documents; do
-              not send them.
-            </p>
-          </>
-        ) : (
-          <>
-            <h2>Educational purpose</h2>
-            <p>
-              FinIQ provides financial education and policy discovery. It does
-              not provide personalized financial, tax or legal advice, accept
-              investments or guarantee scheme eligibility.
-            </p>
-            <h2>Verify official details</h2>
-            <p>
-              Demonstration scheme records may omit or become outdated on
-              important rules. Check the linked official source before applying
-              or making a financial decision.
-            </p>
-            <h2>Responsible use</h2>
-            <p>
-              Keep your credentials private. Do not submit another person’s
-              sensitive information. Administrators must use engagement
-              indicators to offer support, not to make consequential decisions
-              about individuals.
-            </p>
-          </>
+        {t(
+          privacy ? (
+            <>
+              <h2>{t("Your learning data")}</h2>
+              <p>
+                {t(
+                  "FinIQ stores your account details, profile preferences, assessment responses, lesson activity, saved resources and question history. Passwords are hashed. Optional income information is not required to learn and is not used to classify ability.",
+                )}
+              </p>
+              <h2>{t("Who can access it")}</h2>
+              <p>
+                {t(
+                  "You can access your own learning history. Platform administrators manage the service; institutional administrators receive analytics only for learners assigned to their institutions. Contact submissions are visible to platform administrators.",
+                )}
+              </p>
+              <h2>{t("Browser storage")}</h2>
+              <p>
+                {t(
+                  "Your access token is kept in session storage and expires after one hour. The selected interface language and theme are saved in local storage. Sign out to revoke your current tokens.",
+                )}
+              </p>
+              <h2>{t("Data requests")}</h2>
+              <p>
+                {t(
+                  "Use the contact form to request a correction or account-data deletion. An administrator must review and process that request. This project does not automatically verify identity documents; do not send them.",
+                )}
+              </p>
+            </>
+          ) : (
+            <>
+              <h2>{t("Educational purpose")}</h2>
+              <p>
+                {t(
+                  "FinIQ provides financial education and policy discovery. It does not provide personalized financial, tax or legal advice, accept investments or guarantee scheme eligibility.",
+                )}
+              </p>
+              <h2>{t("Verify official details")}</h2>
+              <p>
+                {t(
+                  "Demonstration scheme records may omit or become outdated on important rules. Check the linked official source before applying or making a financial decision.",
+                )}
+              </p>
+              <h2>{t("Responsible use")}</h2>
+              <p>
+                {t(
+                  "Keep your credentials private. Do not submit another person\u2019s sensitive information. Administrators must use engagement indicators to offer support, not to make consequential decisions about individuals.",
+                )}
+              </p>
+            </>
+          ),
         )}
         <Link className="text-link" to="/contact">
-          Contact the project team <ArrowRight size={16} />
+          {t("Contact the project team")}
+          <ArrowRight size={16} />
         </Link>
       </div>
     </div>

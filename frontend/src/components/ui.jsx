@@ -11,8 +11,9 @@ import {
 } from "lucide-react";
 import { useApp } from "../lib/context";
 export function Logo() {
+  const { t } = useApp();
   return (
-    <Link to="/" className="logo" aria-label="FinIQ home">
+    <Link to="/" className="logo" aria-label={t("FinIQ home")}>
       <span className="logo-mark">
         <svg viewBox="0 0 40 40" fill="none">
           <path
@@ -29,7 +30,7 @@ export function Logo() {
       </span>
       <span>
         Fin<span className="text-indigo">IQ</span>
-        <small>LEARN. UNDERSTAND. GROW.</small>
+        <small>{t("LEARN. UNDERSTAND. GROW.")}</small>
       </span>
     </Link>
   );
@@ -48,22 +49,24 @@ export function Button({
       disabled={busy || props.disabled}
       {...props}
     >
-      {busy ? t("Working…") : children}
+      {t(busy ? t("Working…") : children)}
     </button>
   );
 }
 export function Badge({ children, tone = "" }) {
-  return <span className={`badge ${tone}`}>{children}</span>;
+  const { t } = useApp();
+  return <span className={`badge ${tone}`}>{t(children)}</span>;
 }
 export function Heading({ eyebrow, title, description, action }) {
+  const { t } = useApp();
   return (
     <div className="page-heading">
       <div>
-        {eyebrow && <div className="eyebrow">{eyebrow}</div>}
-        <h1>{title}</h1>
-        {description && <p>{description}</p>}
+        {eyebrow && <div className="eyebrow">{t(eyebrow)}</div>}
+        <h1>{t(title)}</h1>
+        {description && <p>{t(description)}</p>}
       </div>
-      {action}
+      {t(action)}
     </div>
   );
 }
@@ -78,7 +81,7 @@ export function Empty({
       <Search size={28} />
       <h3>{t(title)}</h3>
       <p>{t(message)}</p>
-      {action}
+      {t(action)}
     </div>
   );
 }
@@ -86,7 +89,7 @@ export function State({ resource, children }) {
   const { t } = useApp();
   if (resource.loading)
     return (
-      <div className="skeleton-group" aria-label="Loading" role="status">
+      <div className="skeleton-group" aria-label={t("Loading")} role="status">
         <div className="skeleton h-24" />
         <div className="grid-cards">
           {[1, 2, 3].map((n) => (
@@ -110,21 +113,21 @@ export function LessonCard({ lesson, reason }) {
     <article className="resource-card">
       <div className={`lesson-art art-${lesson.id % 4}`}>
         <BookOpen size={29} />
-        <span>{String(lesson.id).padStart(2, "0")}</span>
+        <span>{t(String(lesson.id).padStart(2, "0"))}</span>
       </div>
       <div className="resource-body">
         <div className="flex justify-between gap-2">
-          <span className="eyebrow">{lesson.topic}</span>
+          <span className="eyebrow">{t(lesson.topic)}</span>
           <Badge>{t(lesson.difficulty)}</Badge>
         </div>
         <h3>
-          <Link to={`/lessons/${lesson.id}`}>{lesson.title}</Link>
+          <Link to={`/lessons/${lesson.id}`}>{t(lesson.title)}</Link>
         </h3>
-        <p>{lesson.description}</p>
-        {reason && <div className="reason">✦ {reason}</div>}
+        <p>{t(lesson.description)}</p>
+        {reason && <div className="reason">✦ {t(reason)}</div>}
         <div className="card-footer">
           <span>
-            <Clock size={14} /> {lesson.duration} min
+            <Clock size={14} /> {t(lesson.duration)} {t("min")}
           </span>
           <Link to={`/lessons/${lesson.id}`} className="text-link">
             {t("Read lesson")} <ArrowRight size={16} />
@@ -143,17 +146,17 @@ export function SchemeCard({ scheme }) {
           <span className="icon-tile teal">
             <ShieldCheck size={24} />
           </span>
-          <Badge>{scheme.category}</Badge>
+          <Badge>{t(scheme.category)}</Badge>
         </div>
         <h3>
-          <Link to={`/schemes/${scheme.id}`}>{scheme.title}</Link>
+          <Link to={`/schemes/${scheme.id}`}>{t(scheme.title)}</Link>
         </h3>
-        <p>{scheme.summary}</p>
+        <p>{t(scheme.summary)}</p>
         <div className="meta-line">
-          {scheme.region} · {scheme.beneficiaries}
+          {t(scheme.region)} · {t(scheme.beneficiaries)}
         </div>
         <div className="verification">
-          Demonstration catalogue · verify current rules
+          {t("Demonstration catalogue \xB7 verify current rules")}
         </div>
         <Link className="text-link" to={`/schemes/${scheme.id}`}>
           {t("View scheme")} <ArrowRight size={16} />
@@ -175,7 +178,7 @@ export function Pager({ data, page, setPage }) {
           {t("Previous")}
         </Button>
         <span>
-          {page + 1} / {Math.ceil(data.total / data.size)}
+          {t(page + 1)} / {t(Math.ceil(data.total / data.size))}
         </span>
         <Button
           variant="secondary"
@@ -204,7 +207,7 @@ export function Modal({ title, children, onClose }) {
       className="modal"
     >
       <div className="modal-head">
-        <h2>{title}</h2>
+        <h2>{t(title)}</h2>
         <button
           className="icon-button"
           onClick={onClose}
@@ -213,18 +216,19 @@ export function Modal({ title, children, onClose }) {
           <X />
         </button>
       </div>
-      {children}
+      {t(children)}
     </dialog>
   );
 }
 export function Field({ label, error, children }) {
+  const { t } = useApp();
   return (
     <label className="field">
-      <span>{label}</span>
-      {children}
+      <span>{t(label)}</span>
+      {t(children)}
       {error && (
         <small role="alert" className="field-error">
-          {error}
+          {t(error)}
         </small>
       )}
     </label>

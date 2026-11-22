@@ -52,8 +52,8 @@ export function Stats({ data }) {
               <Icon size={18} />
             </span>
           </div>
-          <strong>{value}</strong>
-          <small>{sub}</small>
+          <strong>{t(value)}</strong>
+          <small>{t(sub)}</small>
         </div>
       ))}
     </div>
@@ -66,8 +66,8 @@ export default function Dashboard() {
   return (
     <>
       <Heading
-        eyebrow="YOUR PERSONAL LEARNING SPACE"
-        title={`${t("Welcome back")}, ${user?.name.split(" ")[0]}.`}
+        eyebrow={t("YOUR PERSONAL LEARNING SPACE")}
+        title={t(`${t("Welcome back")}, ${user?.name.split(" ")[0]}.`)}
         description={t("A little learning. A lot more confidence.")}
         action={
           <Link to="/progress" className="button secondary small">
@@ -81,12 +81,15 @@ export default function Dashboard() {
             <div className="welcome-banner">
               <div>
                 <Badge tone="dark">
-                  <Sparkles size={13} /> YOUR JOURNEY, YOUR PACE
+                  <Sparkles size={13} />
+                  {t("YOUR JOURNEY, YOUR PACE")}
                 </Badge>
                 <h2>
-                  {d.knowledgeLevel === "Unassessed"
-                    ? t("Need a starting point?")
-                    : t("Your next chapter starts here.")}
+                  {t(
+                    d.knowledgeLevel === "Unassessed"
+                      ? t("Need a starting point?")
+                      : t("Your next chapter starts here."),
+                  )}
                 </h2>
                 <p>
                   {t(
@@ -104,6 +107,7 @@ export default function Dashboard() {
                       ? "Take assessment"
                       : "Continue learning",
                   )}{" "}
+                  {t(" ")}
                   <ArrowRight size={16} />
                 </Link>
               </div>
@@ -111,9 +115,9 @@ export default function Dashboard() {
                 <div className="banner-orbit-inner">
                   <BookOpen size={38} />
                   <span>
-                    Make it
+                    {t("Make it")}
                     <br />
-                    <strong>make sense.</strong>
+                    <strong>{t("make sense.")}</strong>
                   </span>
                 </div>
                 <span className="orbit-spark">✦</span>
@@ -124,7 +128,7 @@ export default function Dashboard() {
               <section>
                 <div className="section-heading-row">
                   <div>
-                    <div className="eyebrow">YOUR NEXT SMALL STEP</div>
+                    <div className="eyebrow">{t("YOUR NEXT SMALL STEP")}</div>
                     <h2>{t("Recommended for you")}</h2>
                   </div>
                   <Link className="text-link" to="/learn">
@@ -146,13 +150,16 @@ export default function Dashboard() {
                         </div>
                       ) : (
                         <Empty
-                          title="All available lessons completed"
-                          message="Revisit the library or take another knowledge check."
+                          title={t("All available lessons completed")}
+                          message={t(
+                            "Revisit the library or take another knowledge check.",
+                          )}
                         />
                       )}
                       <p className="method-note">
-                        Personalized with transparent baseline rules ·{" "}
-                        {r.method}
+                        {t("Personalized with transparent baseline rules \xB7")}{" "}
+                        {t(" ")}
+                        {t(r.method)}
                       </p>
                     </>
                   )}
@@ -177,9 +184,9 @@ export default function Dashboard() {
                           <BookOpen size={18} />
                         </span>
                         <div>
-                          <strong>{l.title}</strong>
+                          <strong>{t(l.title)}</strong>
                           <small>
-                            {l.topic} · {l.duration} min
+                            {t(l.topic)} · {t(l.duration)} {t("min")}
                           </small>
                         </div>
                         {l.completed ? (
@@ -199,10 +206,9 @@ export default function Dashboard() {
                     <Target size={20} className="text-indigo" />
                   </div>
                   <div className="goal-count">
-                    {d.weeklyCompleted}
+                    {t(d.weeklyCompleted)}
                     <span>
-                      {" "}
-                      / {d.weeklyGoal} {t("lessons")}
+                      {t(" ")}/ {t(d.weeklyGoal)} {t("lessons")}
                     </span>
                   </div>
                   <div className="progress-track">
@@ -213,25 +219,29 @@ export default function Dashboard() {
                     />
                   </div>
                   <p>
-                    {d.weeklyCompleted >= d.weeklyGoal
-                      ? "You’ve reached your weekly learning goal."
-                      : "One lesson is a good place to begin. You’ve got this."}
+                    {t(
+                      d.weeklyCompleted >= d.weeklyGoal
+                        ? "You’ve reached your weekly learning goal."
+                        : "One lesson is a good place to begin. You’ve got this.",
+                    )}
                   </p>
                   <Link to="/settings" className="text-link">
-                    Adjust your goal <ArrowRight size={14} />
+                    {t("Adjust your goal")}
+                    <ArrowRight size={14} />
                   </Link>
                 </div>
                 <div className="scheme-callout">
                   <Landmark size={25} />
-                  <div className="eyebrow">THE POLICY NAVIGATOR</div>
+                  <div className="eyebrow">{t("THE POLICY NAVIGATOR")}</div>
                   <h3>
-                    More awareness.
+                    {t("More awareness.")}
                     <br />
-                    More possibility.
+                    {t("More possibility.")}
                   </h3>
                   <p>
-                    Explore government programmes and find official information
-                    in one place.
+                    {t(
+                      "Explore government programmes and find official information in one place.",
+                    )}
                   </p>
                   <Link className="text-link" to="/explore">
                     {t("Explore schemes")} <ArrowRight size={16} />
@@ -243,19 +253,21 @@ export default function Dashboard() {
                     d.achievements.map((a) => (
                       <div key={a}>
                         <Award size={20} />
-                        <span>{a}</span>
+                        <span>{t(a)}</span>
                       </div>
                     ))
                   ) : (
-                    <p>Your first milestone starts with your first lesson.</p>
+                    <p>
+                      {t("Your first milestone starts with your first lesson.")}
+                    </p>
                   )}
                 </div>
                 <div className="daily-note">
-                  <span>GOOD TO REMEMBER</span>
+                  <span>{t("GOOD TO REMEMBER")}</span>
                   <p>
-                    Financial confidence is a skill.
+                    {t("Financial confidence is a skill.")}
                     <br />
-                    You build it, one question at a time.
+                    {t("You build it, one question at a time.")}
                   </p>
                 </div>
               </aside>

@@ -1,0 +1,1582 @@
+{
+  "/topics": [
+    {
+      "id": 2,
+      "name": "Banking",
+      "description": "Practical foundations in banking",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 1,
+      "name": "Budgeting",
+      "description": "Practical foundations in budgeting",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 7,
+      "name": "Digital safety",
+      "description": "Practical foundations in digital safety",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 8,
+      "name": "Government schemes",
+      "description": "Practical foundations in government schemes",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 5,
+      "name": "Insurance",
+      "description": "Practical foundations in insurance",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 4,
+      "name": "Pensions",
+      "description": "Practical foundations in pensions",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 9,
+      "name": "QA browser verification",
+      "description": "Synthetic topic created to verify the administrator form on 26 October 2026.",
+      "deleted": false,
+      "created_at": "2026-10-26T09:37:04.203+00:00",
+      "updated_at": "2026-10-26T09:37:04.203+00:00"
+    },
+    {
+      "id": 3,
+      "name": "Savings",
+      "description": "Practical foundations in savings",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    },
+    {
+      "id": 6,
+      "name": "Taxation",
+      "description": "Practical foundations in taxation",
+      "deleted": false,
+      "created_at": "2026-10-26T07:54:24.530+00:00",
+      "updated_at": "2026-10-26T07:54:24.565+00:00"
+    }
+  ],
+  "/lessons?size=100": {
+    "total": 13,
+    "size": 100,
+    "items": [
+      {
+        "id": 1,
+        "title": "Build a budget that works for you",
+        "description": "Give every rupee a purpose without losing sight of everyday life.",
+        "topic_id": 1,
+        "difficulty": "Beginner",
+        "duration": 7,
+        "objectives": "Separate needs from wants;Build a monthly plan;Review irregular expenses",
+        "content": "A budget is a plan for your income. Begin with money you can reliably expect, then list essentials such as food, rent and transport. Separate flexible spending from commitments. If income varies, use a conservative estimate rather than your best month.\n\nSet aside money for future expenses before deciding what is available to spend. A budget should include irregular costs, such as annual fees, repairs and festivals. Review actual spending every week and adjust the plan when circumstances change. A shortfall is a signal to revisit the plan, not a personal failure.",
+        "example": "Illustrative example: with ₹20,000 monthly income, planned expenses of ₹15,000 leave ₹5,000 for goals and unexpected costs. These numbers are an example, not a recommended allocation.",
+        "takeaways": "Track before you cut;Plan for irregular costs;Review your budget regularly",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Budgeting"
+      },
+      {
+        "id": 2,
+        "title": "Banking, without the jargon",
+        "description": "Understand accounts, interest and the documents behind them.",
+        "topic_id": 2,
+        "difficulty": "Beginner",
+        "duration": 8,
+        "objectives": "Compare account features;Understand interest;Protect account access",
+        "content": "A bank account helps you receive, hold and transfer money. Before opening one, compare service charges, minimum balance rules, access options and the terms of the account. A savings account and a current account serve different needs.\n\nInterest is the amount paid for using money over time. Read the rate and how it is calculated. Banks may ask for identity and address documents under their verification processes. Use the bank’s official website or branch to confirm current requirements. Never share a PIN, password or one-time password with someone claiming to help.",
+        "example": "Compare two hypothetical accounts: one has a service fee and the other has withdrawal limits. Which fits your actual usage?",
+        "takeaways": "Read charges and conditions;Use official channels;Keep authentication details private",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Banking"
+      },
+      {
+        "id": 3,
+        "title": "Your first emergency fund",
+        "description": "Create a buffer for costs you cannot predict.",
+        "topic_id": 3,
+        "difficulty": "Beginner",
+        "duration": 9,
+        "objectives": "Define an emergency;Choose accessible savings;Set a manageable goal",
+        "content": "An emergency fund is money reserved for unexpected essential expenses or a temporary loss of income. It is different from money saved for a planned purchase. Start with an amount you can maintain and build gradually.\n\nAccess and stability matter when choosing where to keep an emergency fund. A product with a lock-in period or fluctuating value may be unsuitable for immediate needs. The right target depends on your essential expenses, income stability and family responsibilities. Review it when those circumstances change.",
+        "example": "If essential expenses are ₹12,000 a month, one month of expenses is ₹12,000. This is a planning example, not a universal target.",
+        "takeaways": "Start small;Keep emergency money accessible;Replenish after using it",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Savings"
+      },
+      {
+        "id": 4,
+        "title": "Fixed and recurring deposits",
+        "description": "Compare lump-sum saving with regular contributions.",
+        "topic_id": 3,
+        "difficulty": "Intermediate",
+        "duration": 10,
+        "objectives": "Distinguish FD and RD;Read withdrawal terms;Compare maturity values",
+        "content": "A fixed deposit generally places a lump sum for an agreed term. A recurring deposit generally involves periodic contributions. Both require you to understand the institution’s terms, interest calculation and maturity conditions.\n\nBefore committing, check early withdrawal rules, charges and taxation with the provider. Compare products using the same time period and contribution assumptions. A quoted annual rate alone does not tell you everything about access or final proceeds.",
+        "example": "A lump sum available today and a monthly surplus are different cash flows. Match the product to the cash flow before comparing rates.",
+        "takeaways": "Match saving patterns;Check access restrictions;Read current terms",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Savings"
+      },
+      {
+        "id": 5,
+        "title": "Understand the Public Provident Fund",
+        "description": "Learn the purpose of PPF and what to verify before opening an account.",
+        "topic_id": 3,
+        "difficulty": "Intermediate",
+        "duration": 6,
+        "objectives": "Recognize a long-term product;Find official terms;Check access rules",
+        "content": "Public Provident Fund is a government small-savings product listed by India Post. It is intended for long-term saving. It should not be confused with an ordinary transaction account or an emergency cash balance.\n\nBefore choosing PPF, read the current official rules on eligibility, deposits, maturity, withdrawal and taxation. Rates and rules can change. This lesson does not quote a current rate or promise an individual tax benefit. Use the official source in the scheme explorer for the latest details.",
+        "example": "A learner saving for a distant goal should compare access restrictions with a learner who may need the money next month.",
+        "takeaways": "Verify official terms;Consider your time horizon;Do not assume instant access",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Savings"
+      },
+      {
+        "id": 6,
+        "title": "Retirement planning and NPS",
+        "description": "Understand contributions, investment risk and retirement income.",
+        "topic_id": 4,
+        "difficulty": "Intermediate",
+        "duration": 7,
+        "objectives": "Explain contribution-based pensions;Identify investment risk;Find current NPS rules",
+        "content": "Retirement planning considers expenses after regular employment income changes or stops. A contribution-based system builds a retirement balance from contributions and investment outcomes. The National Pension System is regulated by PFRDA.\n\nInvestment-linked returns can vary. Contributions, charges, investment choices and withdrawal conditions all matter. Read official NPS information before deciding. This lesson does not predict returns or state that NPS suits every learner.",
+        "example": "Compare a predictable expense in retirement with an uncertain future investment value. A plan needs room for uncertainty.",
+        "takeaways": "Begin with your needs;Understand investment risk;Verify exit and withdrawal terms",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Pensions"
+      },
+      {
+        "id": 7,
+        "title": "Saving for a child’s future",
+        "description": "Explore Sukanya Samriddhi through official information.",
+        "topic_id": 3,
+        "difficulty": "Intermediate",
+        "duration": 8,
+        "objectives": "Identify long-term goals;Find eligibility rules;Compare access needs",
+        "content": "India Post lists the Sukanya Samriddhi Account among government small-savings products. Understanding a product begins with its purpose and official eligibility rules. Do not assume a scheme applies solely because its name sounds relevant.\n\nVerify the current age conditions, account-opening requirements, deposit limits, maturity and withdrawal rules with an official provider. Keep education savings and immediate household needs in separate plans where practical.",
+        "example": "A family can write down a future education goal, when money is needed, and the rules that must be checked before choosing a product.",
+        "takeaways": "Check eligibility;Match the goal date;Keep official records",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Savings"
+      },
+      {
+        "id": 8,
+        "title": "Insurance: protection before promises",
+        "description": "Make sense of premiums, coverage and exclusions.",
+        "topic_id": 5,
+        "difficulty": "Beginner",
+        "duration": 9,
+        "objectives": "Explain risk pooling;Read exclusions;Distinguish insurance and investment",
+        "content": "Insurance transfers specified risks under a contract in exchange for a premium. The policy wording defines covered events, exclusions, limits and the claims process. A low premium alone does not establish whether coverage meets your needs.\n\nRead waiting periods, deductibles and co-payment clauses where applicable. Disclose requested information accurately and keep policy records accessible. Ask the insurer to clarify uncertain clauses in writing. Insurance decisions depend on the actual policy and personal circumstances.",
+        "example": "A policy may cover a loss but require the customer to pay a deductible. Read both the coverage and the customer’s share.",
+        "takeaways": "Read the policy wording;Understand exclusions;Keep claims records",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Insurance"
+      },
+      {
+        "id": 9,
+        "title": "Income tax basics",
+        "description": "Learn the vocabulary before you approach a tax return.",
+        "topic_id": 6,
+        "difficulty": "Beginner",
+        "duration": 10,
+        "objectives": "Distinguish income and tax;Understand records;Find official guidance",
+        "content": "Taxable income is determined by applicable rules, not simply by the balance in a bank account. Income sources, exemptions, deductions and the chosen regime can affect a calculation. Current rules must be checked for the relevant financial year.\n\nKeep records of income, deductions claimed and tax already paid. This educational lesson does not calculate your tax or recommend a regime. Use the official Income Tax portal and qualified help when your circumstances require it.",
+        "example": "A salary credit and a transfer between your own accounts have different meanings. Accurate records help distinguish them.",
+        "takeaways": "Use the correct financial year;Keep supporting records;Verify current rules",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Taxation"
+      },
+      {
+        "id": 10,
+        "title": "Prepare for tax filing",
+        "description": "Organize your information before submitting a return.",
+        "topic_id": 6,
+        "difficulty": "Intermediate",
+        "duration": 6,
+        "objectives": "Gather records;Review prefilled data;Keep acknowledgements",
+        "content": "Tax filing starts with understanding your income sources and selecting the applicable return under current rules. Gather statements and supporting records before entering figures. Prefilled information still needs to be checked.\n\nUse the official portal to review filing and verification requirements. Retain the acknowledgement and evidence supporting the figures submitted. This lesson is a general workflow and does not assert an individual deadline or filing obligation.",
+        "example": "Create a checklist of income statements, tax-paid records and supporting evidence, then reconcile differences before submission.",
+        "takeaways": "Check prefilled information;Complete required verification;Retain supporting evidence",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Taxation"
+      },
+      {
+        "id": 11,
+        "title": "Digital payments with confidence",
+        "description": "Check the recipient, amount and purpose before paying.",
+        "topic_id": 7,
+        "difficulty": "Beginner",
+        "duration": 7,
+        "objectives": "Recognize authorization;Review recipient details;Keep transaction references",
+        "content": "Digital payments can move money quickly. Before authorizing a transfer, check the recipient and amount on your own device. A request to enter a payment PIN is an authorization step and should not be treated as a way to receive a reward.\n\nUse official applications and keep your device updated. If a transaction is unexpected, contact the provider through an independently verified support channel. Save the transaction reference and avoid sending further money to recover a disputed payment.",
+        "example": "Pause when a stranger asks you to scan a code and enter a PIN to receive money. Verify the request through your provider.",
+        "takeaways": "Read before approving;Use trusted apps;Keep transaction references",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Digital safety"
+      },
+      {
+        "id": 12,
+        "title": "Spot a financial scam",
+        "description": "Recognize urgency, impersonation and unrealistic promises.",
+        "topic_id": 7,
+        "difficulty": "Beginner",
+        "duration": 8,
+        "objectives": "Identify warning signs;Verify independently;Protect credentials",
+        "content": "Scams often create urgency or promise exceptional rewards. A familiar logo or caller name is not proof of identity. Stop and verify through a channel you obtained independently, such as the official provider’s website or branch.\n\nDo not install remote-access software at a stranger’s request or share authentication codes. If you suspect fraud, preserve messages and transaction details and promptly contact your bank through official channels. Reporting does not guarantee recovery, but records can help investigation.",
+        "example": "A message threatens to close an account today unless you open a link. Visit the bank’s official site independently instead.",
+        "takeaways": "Pause under pressure;Verify independently;Never disclose authentication codes",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Digital safety"
+      },
+      {
+        "id": 13,
+        "title": "Navigate government schemes",
+        "description": "Find reliable information and check whether a scheme is relevant.",
+        "topic_id": 8,
+        "difficulty": "Beginner",
+        "duration": 9,
+        "objectives": "Locate official sources;Separate discovery and eligibility;Prepare questions",
+        "content": "A scheme explorer can help discover programmes, but a search result is not an eligibility decision. Eligibility depends on current official rules and the applicant’s circumstances. Be wary of agents promising guaranteed approval.\n\nUse official information to confirm the beneficiary group, application procedure and required documents. Requirements can differ by scheme and region. Keep an application acknowledgement and follow up through the official channel.",
+        "example": "Write down the scheme name, source URL, date checked and questions to confirm before applying.",
+        "takeaways": "Discovery is a starting point;Check official eligibility;Keep application records",
+        "source_url": "",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00",
+        "topic": "Government schemes"
+      }
+    ],
+    "page": 0
+  },
+  "/schemes?size=100": {
+    "total": 4,
+    "size": 100,
+    "items": [
+      {
+        "id": 1,
+        "title": "Public Provident Fund (PPF)",
+        "category": "Savings",
+        "region": "All India",
+        "beneficiaries": "Long-term savers",
+        "summary": "A small-savings product listed by India Post for long-term saving.",
+        "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+        "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+        "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+        "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+        "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+        "source_url": "https://www.indiapost.gov.in/banking-services/savings",
+        "verification": "Demonstration — verify current rules",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00"
+      },
+      {
+        "id": 2,
+        "title": "Sukanya Samriddhi Account",
+        "category": "Women and child welfare",
+        "region": "All India",
+        "beneficiaries": "Families planning for a girl child",
+        "summary": "A government small-savings account listed by India Post. Confirm the current age and account-opening conditions.",
+        "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+        "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+        "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+        "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+        "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+        "source_url": "https://www.indiapost.gov.in/banking-services/savings",
+        "verification": "Demonstration — verify current rules",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00"
+      },
+      {
+        "id": 3,
+        "title": "National Pension System (NPS)",
+        "category": "Pensions",
+        "region": "All India",
+        "beneficiaries": "People planning for retirement",
+        "summary": "A contribution-based pension system regulated by PFRDA. Investment outcomes and applicable withdrawal rules matter.",
+        "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+        "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+        "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+        "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+        "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+        "source_url": "https://pfrda.org.in/en/schemes/national-pension-system/about-nps",
+        "verification": "Demonstration — verify current rules",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00"
+      },
+      {
+        "id": 4,
+        "title": "Post Office Recurring Deposit",
+        "category": "Savings",
+        "region": "All India",
+        "beneficiaries": "Regular savers",
+        "summary": "A recurring-deposit product listed among India Post savings services. Review deposit and premature-withdrawal conditions.",
+        "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+        "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+        "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+        "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+        "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+        "source_url": "https://www.indiapost.gov.in/banking-services/savings",
+        "verification": "Demonstration — verify current rules",
+        "deleted": false,
+        "created_at": "2026-10-26T07:54:24.530+00:00",
+        "updated_at": "2026-10-26T07:54:24.530+00:00"
+      }
+    ],
+    "page": 0
+  },
+  "/schemes/filters": {
+    "categories": [
+      "Pensions",
+      "Savings",
+      "Women and child welfare"
+    ],
+    "regions": [
+      "All India"
+    ]
+  },
+  "/lessons/1": {
+    "id": 1,
+    "title": "Build a budget that works for you",
+    "description": "Give every rupee a purpose without losing sight of everyday life.",
+    "topic_id": 1,
+    "difficulty": "Beginner",
+    "duration": 7,
+    "objectives": "Separate needs from wants;Build a monthly plan;Review irregular expenses",
+    "content": "A budget is a plan for your income. Begin with money you can reliably expect, then list essentials such as food, rent and transport. Separate flexible spending from commitments. If income varies, use a conservative estimate rather than your best month.\n\nSet aside money for future expenses before deciding what is available to spend. A budget should include irregular costs, such as annual fees, repairs and festivals. Review actual spending every week and adjust the plan when circumstances change. A shortfall is a signal to revisit the plan, not a personal failure.",
+    "example": "Illustrative example: with ₹20,000 monthly income, planned expenses of ₹15,000 leave ₹5,000 for goals and unexpected costs. These numbers are an example, not a recommended allocation.",
+    "takeaways": "Track before you cut;Plan for irregular costs;Review your budget regularly",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Budgeting",
+    "related": [],
+    "assessmentId": 2
+  },
+  "/lessons/2": {
+    "id": 2,
+    "title": "Banking, without the jargon",
+    "description": "Understand accounts, interest and the documents behind them.",
+    "topic_id": 2,
+    "difficulty": "Beginner",
+    "duration": 8,
+    "objectives": "Compare account features;Understand interest;Protect account access",
+    "content": "A bank account helps you receive, hold and transfer money. Before opening one, compare service charges, minimum balance rules, access options and the terms of the account. A savings account and a current account serve different needs.\n\nInterest is the amount paid for using money over time. Read the rate and how it is calculated. Banks may ask for identity and address documents under their verification processes. Use the bank’s official website or branch to confirm current requirements. Never share a PIN, password or one-time password with someone claiming to help.",
+    "example": "Compare two hypothetical accounts: one has a service fee and the other has withdrawal limits. Which fits your actual usage?",
+    "takeaways": "Read charges and conditions;Use official channels;Keep authentication details private",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Banking",
+    "related": [],
+    "assessmentId": 3
+  },
+  "/lessons/3": {
+    "id": 3,
+    "title": "Your first emergency fund",
+    "description": "Create a buffer for costs you cannot predict.",
+    "topic_id": 3,
+    "difficulty": "Beginner",
+    "duration": 9,
+    "objectives": "Define an emergency;Choose accessible savings;Set a manageable goal",
+    "content": "An emergency fund is money reserved for unexpected essential expenses or a temporary loss of income. It is different from money saved for a planned purchase. Start with an amount you can maintain and build gradually.\n\nAccess and stability matter when choosing where to keep an emergency fund. A product with a lock-in period or fluctuating value may be unsuitable for immediate needs. The right target depends on your essential expenses, income stability and family responsibilities. Review it when those circumstances change.",
+    "example": "If essential expenses are ₹12,000 a month, one month of expenses is ₹12,000. This is a planning example, not a universal target.",
+    "takeaways": "Start small;Keep emergency money accessible;Replenish after using it",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Savings",
+    "related": [
+      {
+        "id": 4,
+        "title": "Fixed and recurring deposits"
+      },
+      {
+        "id": 5,
+        "title": "Understand the Public Provident Fund"
+      },
+      {
+        "id": 7,
+        "title": "Saving for a child’s future"
+      }
+    ],
+    "assessmentId": 4
+  },
+  "/lessons/4": {
+    "id": 4,
+    "title": "Fixed and recurring deposits",
+    "description": "Compare lump-sum saving with regular contributions.",
+    "topic_id": 3,
+    "difficulty": "Intermediate",
+    "duration": 10,
+    "objectives": "Distinguish FD and RD;Read withdrawal terms;Compare maturity values",
+    "content": "A fixed deposit generally places a lump sum for an agreed term. A recurring deposit generally involves periodic contributions. Both require you to understand the institution’s terms, interest calculation and maturity conditions.\n\nBefore committing, check early withdrawal rules, charges and taxation with the provider. Compare products using the same time period and contribution assumptions. A quoted annual rate alone does not tell you everything about access or final proceeds.",
+    "example": "A lump sum available today and a monthly surplus are different cash flows. Match the product to the cash flow before comparing rates.",
+    "takeaways": "Match saving patterns;Check access restrictions;Read current terms",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Savings",
+    "related": [
+      {
+        "id": 3,
+        "title": "Your first emergency fund"
+      },
+      {
+        "id": 5,
+        "title": "Understand the Public Provident Fund"
+      },
+      {
+        "id": 7,
+        "title": "Saving for a child’s future"
+      }
+    ],
+    "assessmentId": 5
+  },
+  "/lessons/5": {
+    "id": 5,
+    "title": "Understand the Public Provident Fund",
+    "description": "Learn the purpose of PPF and what to verify before opening an account.",
+    "topic_id": 3,
+    "difficulty": "Intermediate",
+    "duration": 6,
+    "objectives": "Recognize a long-term product;Find official terms;Check access rules",
+    "content": "Public Provident Fund is a government small-savings product listed by India Post. It is intended for long-term saving. It should not be confused with an ordinary transaction account or an emergency cash balance.\n\nBefore choosing PPF, read the current official rules on eligibility, deposits, maturity, withdrawal and taxation. Rates and rules can change. This lesson does not quote a current rate or promise an individual tax benefit. Use the official source in the scheme explorer for the latest details.",
+    "example": "A learner saving for a distant goal should compare access restrictions with a learner who may need the money next month.",
+    "takeaways": "Verify official terms;Consider your time horizon;Do not assume instant access",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Savings",
+    "related": [
+      {
+        "id": 3,
+        "title": "Your first emergency fund"
+      },
+      {
+        "id": 4,
+        "title": "Fixed and recurring deposits"
+      },
+      {
+        "id": 7,
+        "title": "Saving for a child’s future"
+      }
+    ],
+    "assessmentId": 6
+  },
+  "/lessons/6": {
+    "id": 6,
+    "title": "Retirement planning and NPS",
+    "description": "Understand contributions, investment risk and retirement income.",
+    "topic_id": 4,
+    "difficulty": "Intermediate",
+    "duration": 7,
+    "objectives": "Explain contribution-based pensions;Identify investment risk;Find current NPS rules",
+    "content": "Retirement planning considers expenses after regular employment income changes or stops. A contribution-based system builds a retirement balance from contributions and investment outcomes. The National Pension System is regulated by PFRDA.\n\nInvestment-linked returns can vary. Contributions, charges, investment choices and withdrawal conditions all matter. Read official NPS information before deciding. This lesson does not predict returns or state that NPS suits every learner.",
+    "example": "Compare a predictable expense in retirement with an uncertain future investment value. A plan needs room for uncertainty.",
+    "takeaways": "Begin with your needs;Understand investment risk;Verify exit and withdrawal terms",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Pensions",
+    "related": [],
+    "assessmentId": 7
+  },
+  "/lessons/7": {
+    "id": 7,
+    "title": "Saving for a child’s future",
+    "description": "Explore Sukanya Samriddhi through official information.",
+    "topic_id": 3,
+    "difficulty": "Intermediate",
+    "duration": 8,
+    "objectives": "Identify long-term goals;Find eligibility rules;Compare access needs",
+    "content": "India Post lists the Sukanya Samriddhi Account among government small-savings products. Understanding a product begins with its purpose and official eligibility rules. Do not assume a scheme applies solely because its name sounds relevant.\n\nVerify the current age conditions, account-opening requirements, deposit limits, maturity and withdrawal rules with an official provider. Keep education savings and immediate household needs in separate plans where practical.",
+    "example": "A family can write down a future education goal, when money is needed, and the rules that must be checked before choosing a product.",
+    "takeaways": "Check eligibility;Match the goal date;Keep official records",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Savings",
+    "related": [
+      {
+        "id": 3,
+        "title": "Your first emergency fund"
+      },
+      {
+        "id": 4,
+        "title": "Fixed and recurring deposits"
+      },
+      {
+        "id": 5,
+        "title": "Understand the Public Provident Fund"
+      }
+    ],
+    "assessmentId": 8
+  },
+  "/lessons/8": {
+    "id": 8,
+    "title": "Insurance: protection before promises",
+    "description": "Make sense of premiums, coverage and exclusions.",
+    "topic_id": 5,
+    "difficulty": "Beginner",
+    "duration": 9,
+    "objectives": "Explain risk pooling;Read exclusions;Distinguish insurance and investment",
+    "content": "Insurance transfers specified risks under a contract in exchange for a premium. The policy wording defines covered events, exclusions, limits and the claims process. A low premium alone does not establish whether coverage meets your needs.\n\nRead waiting periods, deductibles and co-payment clauses where applicable. Disclose requested information accurately and keep policy records accessible. Ask the insurer to clarify uncertain clauses in writing. Insurance decisions depend on the actual policy and personal circumstances.",
+    "example": "A policy may cover a loss but require the customer to pay a deductible. Read both the coverage and the customer’s share.",
+    "takeaways": "Read the policy wording;Understand exclusions;Keep claims records",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Insurance",
+    "related": [],
+    "assessmentId": 9
+  },
+  "/lessons/9": {
+    "id": 9,
+    "title": "Income tax basics",
+    "description": "Learn the vocabulary before you approach a tax return.",
+    "topic_id": 6,
+    "difficulty": "Beginner",
+    "duration": 10,
+    "objectives": "Distinguish income and tax;Understand records;Find official guidance",
+    "content": "Taxable income is determined by applicable rules, not simply by the balance in a bank account. Income sources, exemptions, deductions and the chosen regime can affect a calculation. Current rules must be checked for the relevant financial year.\n\nKeep records of income, deductions claimed and tax already paid. This educational lesson does not calculate your tax or recommend a regime. Use the official Income Tax portal and qualified help when your circumstances require it.",
+    "example": "A salary credit and a transfer between your own accounts have different meanings. Accurate records help distinguish them.",
+    "takeaways": "Use the correct financial year;Keep supporting records;Verify current rules",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Taxation",
+    "related": [
+      {
+        "id": 10,
+        "title": "Prepare for tax filing"
+      }
+    ],
+    "assessmentId": 10
+  },
+  "/lessons/10": {
+    "id": 10,
+    "title": "Prepare for tax filing",
+    "description": "Organize your information before submitting a return.",
+    "topic_id": 6,
+    "difficulty": "Intermediate",
+    "duration": 6,
+    "objectives": "Gather records;Review prefilled data;Keep acknowledgements",
+    "content": "Tax filing starts with understanding your income sources and selecting the applicable return under current rules. Gather statements and supporting records before entering figures. Prefilled information still needs to be checked.\n\nUse the official portal to review filing and verification requirements. Retain the acknowledgement and evidence supporting the figures submitted. This lesson is a general workflow and does not assert an individual deadline or filing obligation.",
+    "example": "Create a checklist of income statements, tax-paid records and supporting evidence, then reconcile differences before submission.",
+    "takeaways": "Check prefilled information;Complete required verification;Retain supporting evidence",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Taxation",
+    "related": [
+      {
+        "id": 9,
+        "title": "Income tax basics"
+      }
+    ],
+    "assessmentId": 11
+  },
+  "/lessons/11": {
+    "id": 11,
+    "title": "Digital payments with confidence",
+    "description": "Check the recipient, amount and purpose before paying.",
+    "topic_id": 7,
+    "difficulty": "Beginner",
+    "duration": 7,
+    "objectives": "Recognize authorization;Review recipient details;Keep transaction references",
+    "content": "Digital payments can move money quickly. Before authorizing a transfer, check the recipient and amount on your own device. A request to enter a payment PIN is an authorization step and should not be treated as a way to receive a reward.\n\nUse official applications and keep your device updated. If a transaction is unexpected, contact the provider through an independently verified support channel. Save the transaction reference and avoid sending further money to recover a disputed payment.",
+    "example": "Pause when a stranger asks you to scan a code and enter a PIN to receive money. Verify the request through your provider.",
+    "takeaways": "Read before approving;Use trusted apps;Keep transaction references",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Digital safety",
+    "related": [
+      {
+        "id": 12,
+        "title": "Spot a financial scam"
+      }
+    ],
+    "assessmentId": 12
+  },
+  "/lessons/12": {
+    "id": 12,
+    "title": "Spot a financial scam",
+    "description": "Recognize urgency, impersonation and unrealistic promises.",
+    "topic_id": 7,
+    "difficulty": "Beginner",
+    "duration": 8,
+    "objectives": "Identify warning signs;Verify independently;Protect credentials",
+    "content": "Scams often create urgency or promise exceptional rewards. A familiar logo or caller name is not proof of identity. Stop and verify through a channel you obtained independently, such as the official provider’s website or branch.\n\nDo not install remote-access software at a stranger’s request or share authentication codes. If you suspect fraud, preserve messages and transaction details and promptly contact your bank through official channels. Reporting does not guarantee recovery, but records can help investigation.",
+    "example": "A message threatens to close an account today unless you open a link. Visit the bank’s official site independently instead.",
+    "takeaways": "Pause under pressure;Verify independently;Never disclose authentication codes",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Digital safety",
+    "related": [
+      {
+        "id": 11,
+        "title": "Digital payments with confidence"
+      }
+    ],
+    "assessmentId": 13
+  },
+  "/lessons/13": {
+    "id": 13,
+    "title": "Navigate government schemes",
+    "description": "Find reliable information and check whether a scheme is relevant.",
+    "topic_id": 8,
+    "difficulty": "Beginner",
+    "duration": 9,
+    "objectives": "Locate official sources;Separate discovery and eligibility;Prepare questions",
+    "content": "A scheme explorer can help discover programmes, but a search result is not an eligibility decision. Eligibility depends on current official rules and the applicant’s circumstances. Be wary of agents promising guaranteed approval.\n\nUse official information to confirm the beneficiary group, application procedure and required documents. Requirements can differ by scheme and region. Keep an application acknowledgement and follow up through the official channel.",
+    "example": "Write down the scheme name, source URL, date checked and questions to confirm before applying.",
+    "takeaways": "Discovery is a starting point;Check official eligibility;Keep application records",
+    "source_url": "",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "topic": "Government schemes",
+    "related": [],
+    "assessmentId": 14
+  },
+  "/schemes/1": {
+    "id": 1,
+    "title": "Public Provident Fund (PPF)",
+    "category": "Savings",
+    "region": "All India",
+    "beneficiaries": "Long-term savers",
+    "summary": "A small-savings product listed by India Post for long-term saving.",
+    "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+    "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+    "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+    "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+    "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+    "source_url": "https://www.indiapost.gov.in/banking-services/savings",
+    "verification": "Demonstration — verify current rules",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "related": [
+      {
+        "id": 4,
+        "title": "Post Office Recurring Deposit"
+      }
+    ]
+  },
+  "/schemes/2": {
+    "id": 2,
+    "title": "Sukanya Samriddhi Account",
+    "category": "Women and child welfare",
+    "region": "All India",
+    "beneficiaries": "Families planning for a girl child",
+    "summary": "A government small-savings account listed by India Post. Confirm the current age and account-opening conditions.",
+    "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+    "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+    "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+    "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+    "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+    "source_url": "https://www.indiapost.gov.in/banking-services/savings",
+    "verification": "Demonstration — verify current rules",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "related": []
+  },
+  "/schemes/3": {
+    "id": 3,
+    "title": "National Pension System (NPS)",
+    "category": "Pensions",
+    "region": "All India",
+    "beneficiaries": "People planning for retirement",
+    "summary": "A contribution-based pension system regulated by PFRDA. Investment outcomes and applicable withdrawal rules matter.",
+    "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+    "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+    "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+    "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+    "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+    "source_url": "https://pfrda.org.in/en/schemes/national-pension-system/about-nps",
+    "verification": "Demonstration — verify current rules",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "related": []
+  },
+  "/schemes/4": {
+    "id": 4,
+    "title": "Post Office Recurring Deposit",
+    "category": "Savings",
+    "region": "All India",
+    "beneficiaries": "Regular savers",
+    "summary": "A recurring-deposit product listed among India Post savings services. Review deposit and premature-withdrawal conditions.",
+    "eligibility": "Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility.",
+    "benefits": "See the official source for current terms. No rate, payout or tax benefit is guaranteed by FinIQ.",
+    "documents": "The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+    "procedure": "Open the official source, review current conditions and use its authorized application channel.",
+    "faq": "Is this an eligibility decision? No. FinIQ provides educational discovery only.",
+    "source_url": "https://www.indiapost.gov.in/banking-services/savings",
+    "verification": "Demonstration — verify current rules",
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.530+00:00",
+    "related": [
+      {
+        "id": 1,
+        "title": "Public Provident Fund (PPF)"
+      }
+    ]
+  },
+  "/assessments/1": {
+    "id": 1,
+    "title": "Financial foundations assessment",
+    "lesson_id": null,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 1,
+        "prompt": "Which expense belongs in a budget?",
+        "topic": "Budgeting",
+        "options": [
+          {
+            "id": 1,
+            "label": "Only rent"
+          },
+          {
+            "id": 2,
+            "label": "All expected expenses, including annual costs"
+          },
+          {
+            "id": 3,
+            "label": "Only expenses paid in cash"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "prompt": "Who should you share your bank OTP with?",
+        "topic": "Banking",
+        "options": [
+          {
+            "id": 7,
+            "label": "A caller claiming to be a bank manager"
+          },
+          {
+            "id": 8,
+            "label": "A delivery agent"
+          },
+          {
+            "id": 9,
+            "label": "Nobody"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "prompt": "What is an emergency fund primarily for?",
+        "topic": "Savings",
+        "options": [
+          {
+            "id": 13,
+            "label": "Unexpected essential expenses"
+          },
+          {
+            "id": 14,
+            "label": "Daily entertainment"
+          },
+          {
+            "id": 15,
+            "label": "Speculative trading"
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "prompt": "Are investment-linked returns always guaranteed?",
+        "topic": "Pensions",
+        "options": [
+          {
+            "id": 25,
+            "label": "Yes"
+          },
+          {
+            "id": 26,
+            "label": "No"
+          },
+          {
+            "id": 27,
+            "label": "Only if a friend recommends them"
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "prompt": "What determines whether an event is covered?",
+        "topic": "Insurance",
+        "options": [
+          {
+            "id": 34,
+            "label": "The policy terms"
+          },
+          {
+            "id": 35,
+            "label": "The size of an advertisement"
+          },
+          {
+            "id": 36,
+            "label": "The salesperson’s popularity"
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "prompt": "Which tax rules should be used for a return?",
+        "topic": "Taxation",
+        "options": [
+          {
+            "id": 40,
+            "label": "Those for the relevant financial year"
+          },
+          {
+            "id": 41,
+            "label": "Any old social media chart"
+          },
+          {
+            "id": 42,
+            "label": "Rules from another country"
+          }
+        ]
+      },
+      {
+        "id": 18,
+        "prompt": "What is the safest response to an urgent account threat?",
+        "topic": "Digital safety",
+        "options": [
+          {
+            "id": 52,
+            "label": "Share the OTP immediately"
+          },
+          {
+            "id": 53,
+            "label": "Verify independently with the bank"
+          },
+          {
+            "id": 54,
+            "label": "Install software sent by the caller"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/2": {
+    "id": 2,
+    "title": "Build a budget that works for you — knowledge check",
+    "lesson_id": 1,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 2,
+        "prompt": "Which expense belongs in a budget?",
+        "topic": "Budgeting",
+        "options": [
+          {
+            "id": 4,
+            "label": "Only rent"
+          },
+          {
+            "id": 5,
+            "label": "All expected expenses, including annual costs"
+          },
+          {
+            "id": 6,
+            "label": "Only expenses paid in cash"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/3": {
+    "id": 3,
+    "title": "Banking, without the jargon — knowledge check",
+    "lesson_id": 2,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 4,
+        "prompt": "Who should you share your bank OTP with?",
+        "topic": "Banking",
+        "options": [
+          {
+            "id": 10,
+            "label": "A caller claiming to be a bank manager"
+          },
+          {
+            "id": 11,
+            "label": "A delivery agent"
+          },
+          {
+            "id": 12,
+            "label": "Nobody"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/4": {
+    "id": 4,
+    "title": "Your first emergency fund — knowledge check",
+    "lesson_id": 3,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 6,
+        "prompt": "What is an emergency fund primarily for?",
+        "topic": "Savings",
+        "options": [
+          {
+            "id": 16,
+            "label": "Unexpected essential expenses"
+          },
+          {
+            "id": 17,
+            "label": "Daily entertainment"
+          },
+          {
+            "id": 18,
+            "label": "Speculative trading"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/5": {
+    "id": 5,
+    "title": "Fixed and recurring deposits — knowledge check",
+    "lesson_id": 4,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 7,
+        "prompt": "Which pattern usually fits a recurring deposit?",
+        "topic": "Savings",
+        "options": [
+          {
+            "id": 19,
+            "label": "A regular monthly contribution"
+          },
+          {
+            "id": 20,
+            "label": "An unlimited credit line"
+          },
+          {
+            "id": 21,
+            "label": "Purchasing company shares"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/6": {
+    "id": 6,
+    "title": "Understand the Public Provident Fund — knowledge check",
+    "lesson_id": 5,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 8,
+        "prompt": "What should you check before opening PPF?",
+        "topic": "Savings",
+        "options": [
+          {
+            "id": 22,
+            "label": "Only the account name"
+          },
+          {
+            "id": 23,
+            "label": "Current official terms and access rules"
+          },
+          {
+            "id": 24,
+            "label": "An anonymous social media promise"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/7": {
+    "id": 7,
+    "title": "Retirement planning and NPS — knowledge check",
+    "lesson_id": 6,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 10,
+        "prompt": "Are investment-linked returns always guaranteed?",
+        "topic": "Pensions",
+        "options": [
+          {
+            "id": 28,
+            "label": "Yes"
+          },
+          {
+            "id": 29,
+            "label": "No"
+          },
+          {
+            "id": 30,
+            "label": "Only if a friend recommends them"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/8": {
+    "id": 8,
+    "title": "Saving for a child’s future — knowledge check",
+    "lesson_id": 7,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 11,
+        "prompt": "Where should current scheme eligibility be confirmed?",
+        "topic": "Savings",
+        "options": [
+          {
+            "id": 31,
+            "label": "A forwarded message"
+          },
+          {
+            "id": 32,
+            "label": "The official provider"
+          },
+          {
+            "id": 33,
+            "label": "An advertisement without sources"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/9": {
+    "id": 9,
+    "title": "Insurance: protection before promises — knowledge check",
+    "lesson_id": 8,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 13,
+        "prompt": "What determines whether an event is covered?",
+        "topic": "Insurance",
+        "options": [
+          {
+            "id": 37,
+            "label": "The policy terms"
+          },
+          {
+            "id": 38,
+            "label": "The size of an advertisement"
+          },
+          {
+            "id": 39,
+            "label": "The salesperson’s popularity"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/10": {
+    "id": 10,
+    "title": "Income tax basics — knowledge check",
+    "lesson_id": 9,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 15,
+        "prompt": "Which tax rules should be used for a return?",
+        "topic": "Taxation",
+        "options": [
+          {
+            "id": 43,
+            "label": "Those for the relevant financial year"
+          },
+          {
+            "id": 44,
+            "label": "Any old social media chart"
+          },
+          {
+            "id": 45,
+            "label": "Rules from another country"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/11": {
+    "id": 11,
+    "title": "Prepare for tax filing — knowledge check",
+    "lesson_id": 10,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 16,
+        "prompt": "Should prefilled return information be reviewed?",
+        "topic": "Taxation",
+        "options": [
+          {
+            "id": 46,
+            "label": "No, it is always complete"
+          },
+          {
+            "id": 47,
+            "label": "Yes, against your records"
+          },
+          {
+            "id": 48,
+            "label": "Only if the amount is large"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/12": {
+    "id": 12,
+    "title": "Digital payments with confidence — knowledge check",
+    "lesson_id": 11,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 17,
+        "prompt": "What should you check before authorizing payment?",
+        "topic": "Digital safety",
+        "options": [
+          {
+            "id": 49,
+            "label": "Recipient and amount"
+          },
+          {
+            "id": 50,
+            "label": "Only the caller’s confidence"
+          },
+          {
+            "id": 51,
+            "label": "Nothing if the message is urgent"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/13": {
+    "id": 13,
+    "title": "Spot a financial scam — knowledge check",
+    "lesson_id": 12,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 19,
+        "prompt": "What is the safest response to an urgent account threat?",
+        "topic": "Digital safety",
+        "options": [
+          {
+            "id": 55,
+            "label": "Share the OTP immediately"
+          },
+          {
+            "id": 56,
+            "label": "Verify independently with the bank"
+          },
+          {
+            "id": 57,
+            "label": "Install software sent by the caller"
+          }
+        ]
+      }
+    ]
+  },
+  "/assessments/14": {
+    "id": 14,
+    "title": "Navigate government schemes — knowledge check",
+    "lesson_id": 13,
+    "deleted": false,
+    "created_at": "2026-10-26T07:54:24.530+00:00",
+    "updated_at": "2026-10-26T07:54:24.565+00:00",
+    "questions": [
+      {
+        "id": 20,
+        "prompt": "Does appearing in search guarantee eligibility?",
+        "topic": "Government schemes",
+        "options": [
+          {
+            "id": 58,
+            "label": "Yes"
+          },
+          {
+            "id": 59,
+            "label": "No"
+          },
+          {
+            "id": 60,
+            "label": "Only when bookmarked"
+          }
+        ]
+      }
+    ]
+  },
+  "/attempts/1": {
+    "id": 6,
+    "user_id": 6,
+    "assessment_id": 1,
+    "score": 42.857142857142854,
+    "classification": "Beginner",
+    "method": "score-threshold-baseline-v1",
+    "created_at": "2026-11-22T08:14:34.684+00:00",
+    "updated_at": "2026-11-22T08:14:34.684+00:00",
+    "title": "Financial foundations assessment",
+    "responses": [
+      {
+        "prompt": "Which expense belongs in a budget?",
+        "explanation": "Track before you cut. Plan for irregular costs. Review your budget regularly.",
+        "topic": "Budgeting",
+        "correct": false,
+        "selected": "Only rent",
+        "answer": "All expected expenses, including annual costs"
+      },
+      {
+        "prompt": "Who should you share your bank OTP with?",
+        "explanation": "Read charges and conditions. Use official channels. Keep authentication details private.",
+        "topic": "Banking",
+        "correct": false,
+        "selected": "A caller claiming to be a bank manager",
+        "answer": "Nobody"
+      },
+      {
+        "prompt": "What is an emergency fund primarily for?",
+        "explanation": "Start small. Keep emergency money accessible. Replenish after using it.",
+        "topic": "Savings",
+        "correct": true,
+        "selected": "Unexpected essential expenses",
+        "answer": "Unexpected essential expenses"
+      },
+      {
+        "prompt": "Are investment-linked returns always guaranteed?",
+        "explanation": "Begin with your needs. Understand investment risk. Verify exit and withdrawal terms.",
+        "topic": "Pensions",
+        "correct": false,
+        "selected": "Yes",
+        "answer": "No"
+      },
+      {
+        "prompt": "What determines whether an event is covered?",
+        "explanation": "Read the policy wording. Understand exclusions. Keep claims records.",
+        "topic": "Insurance",
+        "correct": true,
+        "selected": "The policy terms",
+        "answer": "The policy terms"
+      },
+      {
+        "prompt": "Which tax rules should be used for a return?",
+        "explanation": "Use the correct financial year. Keep supporting records. Verify current rules.",
+        "topic": "Taxation",
+        "correct": true,
+        "selected": "Those for the relevant financial year",
+        "answer": "Those for the relevant financial year"
+      },
+      {
+        "prompt": "What is the safest response to an urgent account threat?",
+        "explanation": "Pause under pressure. Verify independently. Never disclose authentication codes.",
+        "topic": "Digital safety",
+        "correct": false,
+        "selected": "Share the OTP immediately",
+        "answer": "Verify independently with the bank"
+      }
+    ]
+  },
+  "/progress": {
+    "totalLessons": 13,
+    "completed": 1,
+    "completedLessonIds": [
+      1
+    ],
+    "percentage": 8,
+    "knowledgeLevel": "Beginner",
+    "averageScore": 42.9,
+    "attemptCount": 1,
+    "streak": 1,
+    "activity": [
+      {
+        "date": "Nov 09",
+        "activities": 0
+      },
+      {
+        "date": "Nov 10",
+        "activities": 0
+      },
+      {
+        "date": "Nov 11",
+        "activities": 0
+      },
+      {
+        "date": "Nov 12",
+        "activities": 0
+      },
+      {
+        "date": "Nov 13",
+        "activities": 0
+      },
+      {
+        "date": "Nov 14",
+        "activities": 0
+      },
+      {
+        "date": "Nov 15",
+        "activities": 0
+      },
+      {
+        "date": "Nov 16",
+        "activities": 0
+      },
+      {
+        "date": "Nov 17",
+        "activities": 0
+      },
+      {
+        "date": "Nov 18",
+        "activities": 0
+      },
+      {
+        "date": "Nov 19",
+        "activities": 0
+      },
+      {
+        "date": "Nov 20",
+        "activities": 0
+      },
+      {
+        "date": "Nov 21",
+        "activities": 0
+      },
+      {
+        "date": "Nov 22",
+        "activities": 2
+      }
+    ],
+    "recentLessons": [],
+    "recentSchemes": [],
+    "attempts": [
+      {
+        "id": 6,
+        "score": 42.857142857142854,
+        "classification": "Beginner",
+        "created_at": "2026-11-22T08:14:34.684+00:00",
+        "title": "Financial foundations assessment"
+      }
+    ],
+    "topics": [
+      {
+        "name": "Banking",
+        "score": 0.0
+      },
+      {
+        "name": "Budgeting",
+        "score": 0.0
+      },
+      {
+        "name": "Digital safety",
+        "score": 0.0
+      },
+      {
+        "name": "Insurance",
+        "score": 100.0
+      },
+      {
+        "name": "Pensions",
+        "score": 0.0
+      },
+      {
+        "name": "Savings",
+        "score": 100.0
+      },
+      {
+        "name": "Taxation",
+        "score": 100.0
+      }
+    ],
+    "weeklyGoal": 3,
+    "weeklyCompleted": 1,
+    "achievements": [
+      "First knowledge check",
+      "First lesson completed"
+    ],
+    "achievementHistory": [
+      {
+        "title": "First knowledge check",
+        "awarded_at": "2026-11-22T08:14:34.684+00:00"
+      },
+      {
+        "title": "First lesson completed",
+        "awarded_at": "2026-11-22T08:14:35.068+00:00"
+      }
+    ]
+  },
+  "/recommendations": {
+    "method": "content-rules-baseline-v1",
+    "items": [
+      {
+        "id": 2,
+        "title": "Banking, without the jargon",
+        "topic": "Banking",
+        "difficulty": "Beginner",
+        "description": "Understand accounts, interest and the documents behind them.",
+        "duration": 8,
+        "reason": "Practice a topic from your assessment"
+      },
+      {
+        "id": 11,
+        "title": "Digital payments with confidence",
+        "topic": "Digital safety",
+        "difficulty": "Beginner",
+        "description": "Check the recipient, amount and purpose before paying.",
+        "duration": 7,
+        "reason": "Practice a topic from your assessment"
+      },
+      {
+        "id": 12,
+        "title": "Spot a financial scam",
+        "topic": "Digital safety",
+        "difficulty": "Beginner",
+        "description": "Recognize urgency, impersonation and unrealistic promises.",
+        "duration": 8,
+        "reason": "Practice a topic from your assessment"
+      },
+      {
+        "id": 6,
+        "title": "Retirement planning and NPS",
+        "topic": "Pensions",
+        "difficulty": "Intermediate",
+        "description": "Understand contributions, investment risk and retirement income.",
+        "duration": 7,
+        "reason": "Practice a topic from your assessment"
+      }
+    ]
+  },
+  "/search": {
+    "method": "tfidf-retrieval-v1",
+    "sources": [
+      {
+        "id": "document-1",
+        "title": "Public Provident Fund (PPF) overview",
+        "excerpt": "A small-savings product listed by India Post for long-term saving.",
+        "url": "https://www.indiapost.gov.in/banking-services/savings",
+        "relevance": 0.247
+      },
+      {
+        "id": "scheme-1",
+        "title": "Public Provident Fund (PPF)",
+        "excerpt": "A small-savings product listed by India Post for long-term saving. Verify current eligibility with the official provider. This demonstration catalogue does not determine individual eligibility. The official provider supplies the current document checklist. Do not upload identity documents to FinIQ.",
+        "url": "https://www.indiapost.gov.in/banking-services/savings",
+        "relevance": 0.162
+      },
+      {
+        "id": "lesson-5",
+        "title": "Understand the Public Provident Fund",
+        "excerpt": "Public Provident Fund is a government small-savings product listed by India Post. It is intended for long-term saving. It should not be confused with an ordinary transaction account or an emergency cash balance.\n\nBefore choosing PPF, read the current official rules on eligibility, deposits, maturity, withdrawal and taxation. Rates and rules can change. This lesson does not quote a current rate or promise an individual tax benefit. Use the official source in the scheme explorer for the latest details.",
+        "url": "/lessons/5",
+        "relevance": 0.105
+      }
+    ],
+    "answer": "Here are the closest source passages. These are retrieved educational excerpts, not an eligibility decision or a generated official answer."
+  }
+}

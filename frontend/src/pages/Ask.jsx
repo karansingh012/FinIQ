@@ -5,25 +5,26 @@ import { useApp, useApi } from "../lib/context";
 import { api, errorMessage } from "../lib/api";
 import { Heading, Button, State, Badge, Empty } from "../components/ui";
 function Source({ source }) {
+  const { t , locale } = useApp();
   const internal = source.url.startsWith("/");
   return (
     <div className="source-card">
       <div className="flex gap-2 items-center">
         <BookOpen size={16} />
         {internal ? (
-          <Link to={source.url}>{source.title} ↗</Link>
+          <Link to={source.url}>{t(source.title)} ↗</Link>
         ) : (
           <a href={source.url} target="_blank" rel="noopener noreferrer">
-            {source.title} ↗
+            {t(source.title)} ↗
           </a>
         )}
       </div>
-      <p>{source.excerpt}</p>
+      <p>{t(source.excerpt)}</p>
     </div>
   );
 }
 export default function Ask() {
-  const { t, lang, notify } = useApp();
+  const { t, lang, notify , locale } = useApp();
   const history = useApi("/search/history");
   const [question, setQuestion] = useState(""),
     [busy, setBusy] = useState(false),
@@ -34,9 +35,15 @@ export default function Ask() {
     setBusy(true);
     try {
       const response = (
-        await api.post("/search", { question: question.trim(), language: lang })
+        await api.post("/search", {
+          question: question.trim(),
+          language: lang,
+        })
       ).data;
-      setResult({ ...response, question });
+      setResult({
+        ...response,
+        question,
+      });
       setQuestion("");
       history.reload();
     } catch (e) {
@@ -48,32 +55,42 @@ export default function Ask() {
   return (
     <div className="ask-page">
       <Heading
-        eyebrow="CURIOSITY IS A GOOD START"
+        eyebrow={t("CURIOSITY IS A GOOD START")}
         title={t("Ask FinIQ")}
-        description="Find clear explanations in your learning library and policy sources."
+        description={t(
+          "Find clear explanations in your learning library and policy sources.",
+        )}
       />
       <div className="ask-intro">
         <span className="icon-tile">
           <MessageSquare size={28} />
         </span>
-        <h2>What would you like to understand?</h2>
+        <h2>{t("What would you like to understand?")}</h2>
         <p>
-          Search in English or Hindi. FinIQ retrieves relevant source passages
-          without inventing an answer.
+          {t(
+            "Search in English or Hindi. FinIQ retrieves relevant source passages without inventing an answer.",
+          )}
         </p>
         <div className="suggested-questions">
           {[
             "What is the difference between PPF and NPS?",
             "How does insurance work?",
-            "बचत और पेंशन के बारे में बताएं",
+            "Tell me about savings and pensions",
           ].map((q) => (
-            <button key={q} onClick={() => setQuestion(q)}>
-              {q} <ArrowUpRight size={14} />
+            <button key={q} onClick={() => setQuestion(t(q))}>
+              {t(q)} <ArrowUpRight size={14} />
             </button>
           ))}
         </div>
       </div>
-      <form className="ask-input" onSubmit={ask}>
+      <form
+        onInvalid={(e) =>
+          e.target.setCustomValidity(t("Please check this field."))
+        }
+        onInput={(e) => e.target.setCustomValidity?.("")}
+        className="ask-input"
+        onSubmit={ask}
+      >
         <label className="sr-only" htmlFor="question">
           {t("Ask a question")}
         </label>
@@ -93,20 +110,27 @@ export default function Ask() {
         </Button>
       </form>
       <p className="method-note">
-        Lexical retrieval baseline · No paid AI provider · Source excerpts are
-        not an official eligibility decision.
+        {t(
+          "Lexical retrieval baseline \xB7 No paid AI provider \xB7 Source excerpts are not an official eligibility decision.",
+        )}
       </p>
       {result && (
         <section className="card answer-card" aria-live="polite">
-          <Badge>Retrieved sources</Badge>
-          <h3>{result.question}</h3>
-          <p>{result.answer}</p>
+          <Badge>{t("Retrieved sources")}</Badge>
+          <h3>{t(result.question)}</h3>
+          <p>
+            {t(
+              result.sources.length
+                ? "Here are the closest source passages. These are retrieved educational excerpts, not an eligibility decision or a generated official answer."
+                : "I could not find a reliable match. Try a scheme name or a specific learning topic.",
+            )}
+          </p>
           <div className="sources">
             {result.sources.map((s) => (
               <Source key={s.id} source={s} />
             ))}
           </div>
-          <small className="muted">{result.method}</small>
+          <small className="muted">{t(result.method)}</small>
         </section>
       )}
       <h2 className="section-heading mt-8">{t("Conversation history")}</h2>
@@ -117,10 +141,22 @@ export default function Ask() {
               {d.map((h) => (
                 <details className="card" key={h.id}>
                   <summary>
-                    {h.question}
-                    <small>{new Date(h.created_at).toLocaleDateString()}</small>
+                    {t(h.question)}
+                    <small>
+                      {t(
+                        new Date(h.created_at).toLocaleDateString(
+                          locale,
+                        ),
+                      )}
+                    </small>
                   </summary>
-                  <p>{h.answer}</p>
+                  <p>
+                    {t(
+                      h.sources.length
+                        ? "Here are the closest source passages. These are retrieved educational excerpts, not an eligibility decision or a generated official answer."
+                        : "I could not find a reliable match. Try a scheme name or a specific learning topic.",
+                    )}
+                  </p>
                   {h.sources.map((s) => (
                     <Source key={s.id} source={s} />
                   ))}
@@ -129,8 +165,10 @@ export default function Ask() {
             </div>
           ) : (
             <Empty
-              title="No results yet"
-              message="Your questions and retrieved sources will appear here."
+              title={t("No results yet")}
+              message={t(
+                "Your questions and retrieved sources will appear here.",
+              )}
             />
           )
         }
