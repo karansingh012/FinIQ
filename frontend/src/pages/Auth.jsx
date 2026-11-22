@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Link,
   useNavigate,
@@ -22,8 +22,16 @@ export default function Auth({ mode = "login" }) {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
-  } = useForm({ defaultValues: { language: lang } });
+  } = useForm({
+    defaultValues: {
+      language: lang,
+    },
+  });
+  useEffect(() => {
+    setValue("language", lang);
+  }, [lang, setValue]);
   const signup = mode === "register",
     forgot = mode === "forgot",
     reset = mode === "reset";
@@ -34,7 +42,7 @@ export default function Auth({ mode = "login" }) {
       : reset
         ? "Reset password"
         : "Welcome back";
-  const required = t("Please complete this field.");
+  const required = "Please complete this field.";
   async function submit(data) {
     setError("");
     try {
@@ -57,7 +65,9 @@ export default function Auth({ mode = "login" }) {
         data,
       );
       signIn(result.data);
-      navigate(location.state?.from || "/dashboard", { replace: true });
+      navigate(location.state?.from || "/dashboard", {
+        replace: true,
+      });
     } catch (e) {
       setError(errorMessage(e));
     }
@@ -65,47 +75,57 @@ export default function Auth({ mode = "login" }) {
   return (
     <section className={`auth-page ${signup ? "register-page" : ""}`}>
       <aside className="auth-aside">
-        <div className="eyebrow">A LITTLE KNOWLEDGE GOES A LONG WAY</div>
+        <div className="eyebrow">{t("A LITTLE KNOWLEDGE GOES A LONG WAY")}</div>
         <h2>
-          Build a future
+          {t("Build a future")}
           <br />
-          you understand.
+          {t("you understand.")}
         </h2>
         <p>
-          Everyday financial learning.
-          <br />A path that grows with you.
+          {t("Everyday financial learning.")}
+          <br />
+          {t("A path that grows with you.")}
         </p>
         <div className="auth-decoration">
           <ShieldCheck size={70} />
-          <span>Learn. Understand. Grow.</span>
+          <span>{t("Learn. Understand. Grow.")}</span>
         </div>
         <small>
-          Designed for curiosity.
+          {t("Designed for curiosity.")}
           <br />
-          No finance background required.
+          {t("No finance background required.")}
         </small>
       </aside>
       <div className="auth-form">
-        <div className="eyebrow">WELCOME TO FINIQ</div>
+        <div className="eyebrow">{t("WELCOME TO FINIQ")}</div>
         <h1>{t(title)}</h1>
         <p>
-          {signup
-            ? "A few details help us make your learning more relevant."
-            : forgot
-              ? "Enter your account email to request a secure reset link."
-              : reset
-                ? "Choose a new password with at least 10 characters."
-                : "Pick up where you left off."}
+          {t(
+            signup
+              ? "A few details help us make your learning more relevant."
+              : forgot
+                ? "Enter your account email to request a secure reset link."
+                : reset
+                  ? "Choose a new password with at least 10 characters."
+                  : "Pick up where you left off.",
+          )}
         </p>
         {success ? (
           <div className="success-panel" role="status">
-            <p>{success}</p>
+            <p>{t(success)}</p>
             <Link to="/login" className="button">
               {t("Sign in")}
             </Link>
           </div>
         ) : (
-          <form onSubmit={handleSubmit(submit)} noValidate>
+          <form
+            onInvalid={(e) =>
+              e.target.setCustomValidity(t("Please check this field."))
+            }
+            onInput={(e) => e.target.setCustomValidity?.("")}
+            onSubmit={handleSubmit(submit)}
+            noValidate
+          >
             {error && (
               <div className="alert error" role="alert">
                 {t(error)}
@@ -116,7 +136,10 @@ export default function Auth({ mode = "login" }) {
                 <Field label={t("Full name")} error={errors.name?.message}>
                   <input
                     autoComplete="name"
-                    {...register("name", { required, maxLength: 120 })}
+                    {...register("name", {
+                      required,
+                      maxLength: 120,
+                    })}
                   />
                 </Field>
               )}
@@ -129,7 +152,7 @@ export default function Auth({ mode = "login" }) {
                       required,
                       pattern: {
                         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: t("Enter a valid email."),
+                        message: "Enter a valid email.",
                       },
                     })}
                   />
@@ -152,7 +175,7 @@ export default function Auth({ mode = "login" }) {
                           signup || reset
                             ? {
                                 value: 10,
-                                message: t("Use at least 10 characters."),
+                                message: "Use at least 10 characters.",
                               }
                             : undefined,
                         maxLength: 72,
@@ -182,22 +205,26 @@ export default function Auth({ mode = "login" }) {
                       {...register("confirm", {
                         required,
                         validate: (v) =>
-                          v === watch("password") || t("Passwords must match."),
+                          v === watch("password") || "Passwords must match.",
                       })}
                     />
                   </Field>
                   <Field label={t("Preferred language")}>
                     <select {...register("language")}>
-                      <option value="en">English</option>
-                      <option value="hi">हिन्दी</option>
+                      <option value="en">{t("English")}</option>
+                      <option value="hi">{t("Hindi")}</option>
                     </select>
                   </Field>
                   <Field
                     label={t("Occupation")}
                     error={errors.occupation?.message}
                   >
-                    <select {...register("occupation", { required })}>
-                      <option value="">Select…</option>
+                    <select
+                      {...register("occupation", {
+                        required,
+                      })}
+                    >
+                      <option value="">{t("Select\u2026")}</option>
                       {[
                         "Student",
                         "Salaried professional",
@@ -206,22 +233,31 @@ export default function Auth({ mode = "login" }) {
                         "Farmer",
                         "Other",
                       ].map((v) => (
-                        <option key={v}>{v}</option>
+                        <option key={v} value={v}>
+                          {t(v)}
+                        </option>
                       ))}
                     </select>
                   </Field>
                   <Field label={t("Region")} error={errors.region?.message}>
                     <input
-                      placeholder="State / region"
-                      {...register("region", { required, maxLength: 120 })}
+                      placeholder={t("State / region")}
+                      {...register("region", {
+                        required,
+                        maxLength: 120,
+                      })}
                     />
                   </Field>
                   <Field
                     label={t("Education")}
                     error={errors.education?.message}
                   >
-                    <select {...register("education", { required })}>
-                      <option value="">Select…</option>
+                    <select
+                      {...register("education", {
+                        required,
+                      })}
+                    >
+                      <option value="">{t("Select\u2026")}</option>
                       {[
                         "School",
                         "Undergraduate",
@@ -229,17 +265,27 @@ export default function Auth({ mode = "login" }) {
                         "Postgraduate",
                         "Other",
                       ].map((v) => (
-                        <option key={v}>{v}</option>
+                        <option key={v} value={v}>
+                          {t(v)}
+                        </option>
                       ))}
                     </select>
                   </Field>
                   <Field label={t("Income bracket (optional)")}>
                     <select {...register("incomeBracket")}>
-                      <option value="">Prefer not to say</option>
-                      <option>No regular income</option>
-                      <option>Below ₹25,000 / month</option>
-                      <option>₹25,000–₹75,000 / month</option>
-                      <option>Above ₹75,000 / month</option>
+                      <option value="">{t("Prefer not to say")}</option>
+                      <option value={"No regular income"}>
+                        {t("No regular income")}
+                      </option>
+                      <option value={"Below \u20B925,000 / month"}>
+                        {t("Below \u20B925,000 / month")}
+                      </option>
+                      <option value={"\u20B925,000\u2013\u20B975,000 / month"}>
+                        {t("\u20B925,000\u2013\u20B975,000 / month")}
+                      </option>
+                      <option value={"Above \u20B975,000 / month"}>
+                        {t("Above \u20B975,000 / month")}
+                      </option>
                     </select>
                   </Field>
                 </>
@@ -250,16 +296,16 @@ export default function Auth({ mode = "login" }) {
                 <input
                   type="checkbox"
                   {...register("consent", {
-                    required: t("Please accept the terms."),
+                    required: "Please accept the terms.",
                   })}
                 />
                 <span>
-                  {t("I agree to the privacy notice and terms.")}{" "}
-                  <Link to="/privacy">{t("Privacy")}</Link> ·{" "}
+                  {t("I agree to the privacy notice and terms.")} {t(" ")}
+                  <Link to="/privacy">{t("Privacy")}</Link> ·{t(" ")}
                   <Link to="/terms">{t("Terms")}</Link>
                   {errors.consent && (
                     <small className="field-error">
-                      {errors.consent.message}
+                      {t(errors.consent.message)}
                     </small>
                   )}
                 </span>
@@ -280,6 +326,7 @@ export default function Auth({ mode = "login" }) {
                       ? "Reset password"
                       : "Sign in",
               )}{" "}
+              {t(" ")}
               <ArrowRight size={17} />
             </Button>
           </form>
@@ -287,10 +334,13 @@ export default function Auth({ mode = "login" }) {
         <div className="auth-switch">
           {signup ? (
             <>
-              Already learning with us? <Link to="/login">{t("Sign in")}</Link>
+              {t("Already learning with us?")}
+              <Link to="/login">{t("Sign in")}</Link>
             </>
           ) : (
-            <Link to="/register">New to FinIQ? {t("Create account")}</Link>
+            <Link to="/register">
+              {t("New to FinIQ?")} {t("Create account")}
+            </Link>
           )}
         </div>
       </div>

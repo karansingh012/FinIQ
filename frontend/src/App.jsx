@@ -1,7 +1,12 @@
 import React from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { useApp } from "./lib/context";
-import { PublicLayout, AppLayout, Protected } from "./components/Layout";
+import {
+  PublicLayout,
+  AppLayout,
+  Protected,
+  Language,
+} from "./components/Layout";
 import { Landing, About, Legal } from "./pages/Public";
 import Auth from "./pages/Auth";
 import Contact from "./pages/Contact";
@@ -26,6 +31,7 @@ function DetailLayout() {
   return user ? <AppLayout /> : <PublicLayout />;
 }
 export default function App() {
+  const { t } = useApp();
   return (
     <>
       <ScrollTop />
@@ -90,9 +96,10 @@ export default function App() {
           path="*"
           element={
             <div className="empty">
-              <h1>Page not found</h1>
+              <Language />
+              <h1>{t("Page not found")}</h1>
               <Link to="/" className="button">
-                Back to FinIQ
+                {t("Back to FinIQ")}
               </Link>
             </div>
           }

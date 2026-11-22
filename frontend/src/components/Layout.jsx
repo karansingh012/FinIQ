@@ -18,23 +18,41 @@ import {
   Users,
   X,
   Globe,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useApp } from "../lib/context";
 import { Logo } from "./ui";
 export function Language() {
-  const { lang, language } = useApp();
+  const { lang, language, t, theme, setTheme } = useApp();
   return (
-    <label className="language">
-      <Globe size={16} />
-      <select
-        aria-label="Language / भाषा"
-        value={lang}
-        onChange={(e) => language(e.target.value)}
+    <div className="display-controls">
+      <button
+        type="button"
+        className="icon-button theme-toggle"
+        aria-label={t(
+          theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+        )}
+        title={t(
+          theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+        )}
+        aria-pressed={theme === "dark"}
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
-        <option value="en">English</option>
-        <option value="hi">हिन्दी</option>
-      </select>
-    </label>
+        {theme === "dark" ? <Sun size={19} /> : <Moon size={19} />}
+      </button>
+      <label className="language">
+        <Globe size={16} />
+        <select
+          aria-label={t("Language")}
+          value={lang}
+          onChange={(e) => language(e.target.value)}
+        >
+          <option value="en">{t("English")}</option>
+          <option value="hi">{t("Hindi")}</option>
+        </select>
+      </label>
+    </div>
   );
 }
 export function PublicLayout() {
@@ -62,40 +80,48 @@ export function PublicLayout() {
         <div>
           <Logo />
           <p>
-            Making financial & policy literacy
+            {t("Making financial & policy literacy")}
             <br />
-            accessible to everyone.
+            {t("accessible to everyone.")}
           </p>
         </div>
         <div>
-          <h4>Explore</h4>
+          <h4>{t("Explore")}</h4>
           <Link to="/lessons">{t("My learning")}</Link>
           <Link to="/schemes">{t("Government schemes")}</Link>
           <Link to="/about">{t("About")}</Link>
         </div>
         <div>
-          <h4>Support</h4>
+          <h4>{t("Support")}</h4>
           <Link to="/contact">{t("Contact")}</Link>
           <Link to="/privacy">{t("Privacy")}</Link>
           <Link to="/terms">{t("Terms")}</Link>
         </div>
         <div className="footer-note">
-          An academic financial education project.
+          {t("An academic financial education project.")}
           <br />
-          Learn thoughtfully. Verify with official sources.
+          {t("Learn thoughtfully. Verify with official sources.")}
           <br />
-          <span>© {new Date().getFullYear()} FinIQ</span>
+          <span>© {t(new Date().getFullYear())} FinIQ</span>
         </div>
       </footer>
     </>
   );
 }
 export function Protected({ admin = false, institution = false, children }) {
-  const { ready, user } = useApp();
+  const { ready, user, t } = useApp();
   const location = useLocation();
-  if (!ready) return <div className="empty">Loading…</div>;
+  if (!ready) return <div className="empty">{t("Loading\u2026")}</div>;
   if (!user)
-    return <Navigate to="/login" state={{ from: location.pathname }} replace />;
+    return (
+      <Navigate
+        to="/login"
+        state={{
+          from: location.pathname,
+        }}
+        replace
+      />
+    );
   if (
     (admin && user.role !== "PLATFORM_ADMIN") ||
     (institution &&
@@ -134,7 +160,7 @@ export function AppLayout() {
             <X />
           </button>
         </div>
-        <div className="workspace-label">YOUR LEARNING SPACE</div>
+        <div className="workspace-label">{t("YOUR LEARNING SPACE")}</div>
         <nav>
           {nav.map(([url, label, Icon]) => (
             <NavLink
@@ -150,7 +176,7 @@ export function AppLayout() {
         </nav>
         <div className="side-bottom">
           <div className="side-tip">
-            <span>ONE SMALL STEP, EVERY DAY</span>
+            <span>{t("ONE SMALL STEP, EVERY DAY")}</span>
             <p>{t("A little learning. A lot more confidence.")}</p>
             <Link to="/learn">
               {t("Explore learning")} <ArrowUpRight size={15} />
@@ -199,16 +225,17 @@ export function AppLayout() {
             <Menu />
           </button>
           <div className="header-crumb">
-            Your space <span>/</span> <strong>FinIQ</strong>
+            {t("Your space")}
+            <span>/</span> <strong>FinIQ</strong>
           </div>
           <div className="flex items-center gap-5">
             <Language />
             <Link to="/settings" className="profile-chip">
               <span className="avatar">
-                {user?.name?.slice(0, 1).toUpperCase()}
+                {t(user?.name?.slice(0, 1).toUpperCase())}
               </span>
               <span>
-                <strong>{user?.name}</strong>
+                <strong>{t(user?.name)}</strong>
                 <small>{t(user?.knowledgeLevel || "Unassessed")}</small>
               </span>
             </Link>
@@ -218,8 +245,10 @@ export function AppLayout() {
           <Outlet />
         </main>
         <div className="workspace-footer">
-          FinIQ · A clearer path to financial confidence{" "}
-          <span>Educational use · Verify policy details at source</span>
+          {t("FinIQ \xB7 A clearer path to financial confidence")} {t(" ")}
+          <span>
+            {t("Educational use \xB7 Verify policy details at source")}
+          </span>
         </div>
       </div>
     </div>

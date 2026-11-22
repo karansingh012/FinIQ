@@ -19,8 +19,11 @@ export default function Assessment() {
   async function submit() {
     setBusy(true);
     try {
-      const result = (await api.post(`/assessments/${id}/submit`, { answers }))
-        .data;
+      const result = (
+        await api.post(`/assessments/${id}/submit`, {
+          answers,
+        })
+      ).data;
       const me = (await api.get("/me")).data;
       setUser(me.user);
       navigate(`/results/${result.id}`);
@@ -33,24 +36,29 @@ export default function Assessment() {
   return (
     <div className="assessment-page">
       <Heading
-        eyebrow="A MOMENT TO CHECK IN"
+        eyebrow={t("A MOMENT TO CHECK IN")}
         title={t("Knowledge check")}
-        description="This is a starting point, not a judgement. Choose the answer that feels right to you."
+        description={t(
+          "This is a starting point, not a judgement. Choose the answer that feels right to you.",
+        )}
       />
       <State resource={resource}>
         {(data) => {
           if (!data.questions.length)
             return (
-              <div className="empty">This assessment has no questions yet.</div>
+              <div className="empty">
+                {t("This assessment has no questions yet.")}
+              </div>
             );
           const question = data.questions[step];
           return (
             <div className="quiz-layout">
               <div className="card quiz-card">
                 <div className="quiz-top">
-                  <Badge>{question.topic}</Badge>
+                  <Badge>{t(question.topic)}</Badge>
                   <span>
-                    Question {step + 1} of {data.questions.length}
+                    {t("Question")} {t(step + 1)} {t("of")}{" "}
+                    {t(data.questions.length)}
                   </span>
                 </div>
                 <div className="progress-track">
@@ -60,9 +68,9 @@ export default function Assessment() {
                     }}
                   />
                 </div>
-                <h2>{question.prompt}</h2>
+                <h2>{t(question.prompt)}</h2>
                 <fieldset>
-                  <legend className="sr-only">Choose one answer</legend>
+                  <legend className="sr-only">{t("Choose one answer")}</legend>
                   {question.options.map((option, i) => (
                     <label
                       key={option.id}
@@ -73,13 +81,16 @@ export default function Assessment() {
                         name={`question-${question.id}`}
                         checked={answers[question.id] === option.id}
                         onChange={() =>
-                          setAnswers({ ...answers, [question.id]: option.id })
+                          setAnswers({
+                            ...answers,
+                            [question.id]: option.id,
+                          })
                         }
                       />
                       <span className="option-letter">
-                        {String.fromCharCode(65 + i)}
+                        {t(String.fromCharCode(65 + i))}
                       </span>
-                      <span>{option.label}</span>
+                      <span>{t(option.label)}</span>
                       {answers[question.id] === option.id && (
                         <Check size={18} />
                       )}
@@ -115,27 +126,29 @@ export default function Assessment() {
                 </div>
               </div>
               <aside className="card quiz-aside">
-                <span className="eyebrow">YOUR STARTING POINT</span>
-                <h3>{data.title}</h3>
+                <span className="eyebrow">{t("YOUR STARTING POINT")}</span>
+                <h3>{t(data.title)}</h3>
                 <p>
-                  Answers are scored securely after submission. You can review
-                  every answer and explanation afterward.
+                  {t(
+                    "Answers are scored securely after submission. You can review every answer and explanation afterward.",
+                  )}
                 </p>
                 <div className="question-dots">
                   {data.questions.map((q, i) => (
                     <button
                       key={q.id}
-                      aria-label={`Question ${i + 1}`}
+                      aria-label={t(`Question ${i + 1}`)}
                       className={answers[q.id] ? "answered" : ""}
                       onClick={() => setStep(i)}
                     >
-                      {i + 1}
+                      {t(i + 1)}
                     </button>
                   ))}
                 </div>
                 <small>
-                  Classification uses a documented score baseline. It is not a
-                  validated prediction of financial ability.
+                  {t(
+                    "Classification uses a documented score baseline. It is not a validated prediction of financial ability.",
+                  )}
                 </small>
               </aside>
             </div>
@@ -153,20 +166,24 @@ export function Results() {
     <div>
       <Heading
         title={t("Your results")}
-        description="A clearer picture of what you know — and where to go next."
+        description={t(
+          "A clearer picture of what you know — and where to go next.",
+        )}
       />
       <State resource={resource}>
         {(d) => (
           <>
             <div className="result-banner">
               <div className="score-circle">
-                {Math.round(d.score)}
+                {t(Math.round(d.score))}
                 <small>/ 100</small>
               </div>
               <div>
                 <Badge>{t(d.classification)}</Badge>
-                <h2>{d.title}</h2>
-                <p>Scoring method: {d.method}</p>
+                <h2>{t(d.title)}</h2>
+                <p>
+                  {t("Scoring method:")} {t(d.method)}
+                </p>
                 <Link to="/dashboard" className="button">
                   {t("Recommended for you")} <ArrowRight size={16} />
                 </Link>
@@ -177,20 +194,21 @@ export function Results() {
               {d.responses.map((r, i) => (
                 <div className="card review-card" key={i}>
                   <Badge tone={r.correct ? "teal" : "amber"}>
-                    {r.correct ? "Strength" : "Practice this topic"} · {r.topic}
+                    {t(r.correct ? "Strength" : "Practice this topic")} ·{" "}
+                    {t(r.topic)}
                   </Badge>
-                  <h3>{r.prompt}</h3>
+                  <h3>{t(r.prompt)}</h3>
                   <p>
-                    {t("Your answer")}: {r.selected}
+                    {t("Your answer")}: {t(r.selected)}
                   </p>
                   {!r.correct && (
                     <p>
                       <strong>
-                        {t("Correct answer")}: {r.answer}
+                        {t("Correct answer")}: {t(r.answer)}
                       </strong>
                     </p>
                   )}
-                  <div className="explanation">{r.explanation}</div>
+                  <div className="explanation">{t(r.explanation)}</div>
                 </div>
               ))}
             </div>

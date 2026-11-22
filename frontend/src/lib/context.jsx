@@ -6,28 +6,39 @@ import React, {
   useCallback,
 } from "react";
 import { api, errorMessage } from "./api";
-import { hi } from "./translations";
+import { translate, localeFor } from "./i18n";
 const Context = createContext();
 export function Provider({ children }) {
   const [user, setUser] = useState(null),
     [ready, setReady] = useState(false),
     [lang, setLang] = useState(localStorage.getItem("finiq-language") || "en"),
-    [notice, setNotice] = useState(null);
-  const t = useCallback(
-    (text) => (lang === "hi" ? hi[text] || text : text),
-    [lang],
-  );
+    [notice, setNotice] = useState(null),
+    [theme, setTheme] = useState(
+      localStorage.getItem("finiq-theme") || "light",
+    );
+  const t = useCallback((text) => translate(text, lang), [lang]);
   useEffect(() => {
     document.documentElement.lang = lang;
+    document.title =
+      lang === "hi"
+        ? "FinIQ — आज सीखें। आत्मविश्वास से जिएँ।"
+        : "FinIQ — Learn today. Live confidently.";
     localStorage.setItem("finiq-language", lang);
   }, [lang]);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("finiq-theme", theme);
+  }, [theme]);
   useEffect(() => {
     if (sessionStorage.getItem("finiq-token"))
       api
         .get("/me")
         .then((r) => {
           setUser(r.data.user);
-          setLang(r.data.user.language);
+          setLang(
+            localStorage.getItem("finiq-language") || r.data.user.language,
+          );
         })
         .catch(() => sessionStorage.removeItem("finiq-token"))
         .finally(() => setReady(true));
@@ -51,7 +62,7 @@ export function Provider({ children }) {
   function signIn(data) {
     sessionStorage.setItem("finiq-token", data.token);
     setUser(data.user);
-    setLang(data.user.language);
+    setLang(localStorage.getItem("finiq-language") || data.user.language);
   }
   async function signOut() {
     try {
@@ -59,7 +70,10 @@ export function Provider({ children }) {
     } catch (e) {
       // An expired or revoked token already has no server session to revoke.
       if (e.response?.status !== 401) {
-        setNotice({ message: errorMessage(e), kind: "error" });
+        setNotice({
+          message: errorMessage(e),
+          kind: "error",
+        });
         return;
       }
     }
@@ -81,11 +95,18 @@ export function Provider({ children }) {
         ).data;
         setUser(saved.user);
       } catch (e) {
-        setNotice({ message: errorMessage(e), kind: "error" });
+        setNotice({
+          message: errorMessage(e),
+          kind: "error",
+        });
       }
     }
   }
-  const notify = (message, kind = "success") => setNotice({ message, kind });
+  const notify = (message, kind = "success") =>
+    setNotice({
+      message,
+      kind,
+    });
   return (
     <Context.Provider
       value={{
@@ -95,6 +116,9 @@ export function Provider({ children }) {
         lang,
         t,
         language,
+        theme,
+        setTheme,
+        locale: localeFor(lang),
         signIn,
         signOut,
         notify,

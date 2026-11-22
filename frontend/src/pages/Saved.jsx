@@ -24,15 +24,15 @@ export default function Saved() {
     <>
       <Heading
         title={t("Saved resources")}
-        description="Your personal shelf of useful ideas and information."
+        description={t("Your personal shelf of useful ideas and information.")}
       />
       <State resource={r}>
         {(d) => (
           <>
             {!d.lessons.length && !d.schemes.length && (
               <Empty
-                title="No saved resources"
-                message="Save lessons and schemes to find them here."
+                title={t("No saved resources")}
+                message={t("Save lessons and schemes to find them here.")}
               />
             )}
             {[

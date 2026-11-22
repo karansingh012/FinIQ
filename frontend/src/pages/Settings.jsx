@@ -1,12 +1,15 @@
-import React from "react";
+import { catalogueQuery, canonicalValue } from "../lib/i18n";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useApp, useApi } from "../lib/context";
 import { api, errorMessage } from "../lib/api";
 import { Heading, State, Field, Button } from "../components/ui";
 function SettingsForm({ data }) {
-  const { t, setUser, language, notify } = useApp();
+  const { t, lang, setUser, language, notify } = useApp();
   const {
     register,
+    setValue,
+    getValues,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm({
@@ -16,10 +19,28 @@ function SettingsForm({ data }) {
       preferences: data.learning.preferences,
     },
   });
+  useEffect(() => {
+    setValue("language", lang);
+    for (const field of [
+      "occupation",
+      "region",
+      "education",
+      "incomeBracket",
+      "preferences",
+    ]) {
+      const original = canonicalValue(getValues(field) || "");
+      setValue(field, t(original));
+    }
+  }, [lang, setValue, getValues, t]);
   async function submit(values) {
     try {
       const r = await api.put("/me", {
         ...values,
+        occupation: canonicalValue(values.occupation),
+        education: canonicalValue(values.education),
+        region: canonicalValue(values.region),
+        incomeBracket: canonicalValue(values.incomeBracket),
+        preferences: catalogueQuery(values.preferences || ""),
         weeklyGoal: Number(values.weeklyGoal),
       });
       setUser(r.data.user);
@@ -30,7 +51,14 @@ function SettingsForm({ data }) {
     }
   }
   return (
-    <form className="card form-card" onSubmit={handleSubmit(submit)}>
+    <form
+      onInvalid={(e) =>
+        e.target.setCustomValidity(t("Please check this field."))
+      }
+      onInput={(e) => e.target.setCustomValidity?.("")}
+      className="card form-card"
+      onSubmit={handleSubmit(submit)}
+    >
       <div className="form-grid">
         {[
           ["name", "Full name"],
@@ -44,7 +72,7 @@ function SettingsForm({ data }) {
               {...register(name, {
                 required:
                   name !== "incomeBracket"
-                    ? t("Please complete this field.")
+                    ? "Please complete this field."
                     : false,
                 maxLength: name === "incomeBracket" ? 80 : 100,
               })}
@@ -53,8 +81,8 @@ function SettingsForm({ data }) {
         ))}
         <Field label={t("Preferred language")}>
           <select {...register("language")}>
-            <option value="en">English</option>
-            <option value="hi">हिन्दी</option>
+            <option value="en">{t("English")}</option>
+            <option value="hi">{t("Hindi")}</option>
           </select>
         </Field>
         <Field label={t("Weekly lesson goal")}>
@@ -62,19 +90,25 @@ function SettingsForm({ data }) {
             type="number"
             min={1}
             max={20}
-            {...register("weeklyGoal", { required: true, min: 1, max: 20 })}
+            {...register("weeklyGoal", {
+              required: true,
+              min: 1,
+              max: 20,
+            })}
           />
         </Field>
         <Field label={t("Topic preferences")}>
           <input
-            {...register("preferences", { maxLength: 500 })}
-            placeholder="Savings, Banking, Insurance…"
+            {...register("preferences", {
+              maxLength: 500,
+            })}
+            placeholder={t("Savings, Banking, Insurance…")}
           />
         </Field>
       </div>
       <p className="muted text-sm mb-6">
-        Email: {data.user.email}. Your role and knowledge level are managed by
-        the server.
+        {t("Email:")} {t(data.user.email)}{" "}
+        {t(". Your role and knowledge level are managed by the server.")}
       </p>
       <Button busy={isSubmitting}>{t("Save changes")}</Button>
     </form>
@@ -87,7 +121,7 @@ export default function Settings() {
     <div className="settings-page">
       <Heading
         title={t("Your account")}
-        description="Make your learning experience feel more like you."
+        description={t("Make your learning experience feel more like you.")}
       />
       <State resource={r}>{(d) => <SettingsForm data={d} />}</State>
     </div>

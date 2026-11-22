@@ -15,20 +15,32 @@ export default function Contact() {
   async function submit(data) {
     try {
       const r = await api.post("/contact", data);
-      setMessage({ text: r.data.message, ok: true });
+      setMessage({
+        text: r.data.message,
+        ok: true,
+      });
       reset();
     } catch (e) {
-      setMessage({ text: errorMessage(e), ok: false });
+      setMessage({
+        text: errorMessage(e),
+        ok: false,
+      });
     }
   }
   return (
     <div className="public-content narrow">
       <Heading
-        eyebrow="WE’RE HERE TO HELP"
+        eyebrow={t("WE’RE HERE TO HELP")}
         title={t("Contact")}
-        description="Questions, feedback or a data request? Send a message to the project team."
+        description={t(
+          "Questions, feedback or a data request? Send a message to the project team.",
+        )}
       />
       <form
+        onInvalid={(e) =>
+          e.target.setCustomValidity(t("Please check this field."))
+        }
+        onInput={(e) => e.target.setCustomValidity?.("")}
         className="card form-card"
         onSubmit={handleSubmit(submit)}
         noValidate
@@ -38,7 +50,7 @@ export default function Contact() {
             role="status"
             className={`alert ${message.ok ? "success" : "error"}`}
           >
-            {message.text}
+            {t(message.text)}
           </div>
         )}
         {[
@@ -51,7 +63,7 @@ export default function Contact() {
               <textarea
                 rows={6}
                 {...register(name, {
-                  required: t("Please complete this field."),
+                  required: "Please complete this field.",
                   minLength: {
                     value: 10,
                     message: "Please write at least 10 characters.",
@@ -63,12 +75,12 @@ export default function Contact() {
               <input
                 type={name === "email" ? "email" : "text"}
                 {...register(name, {
-                  required: t("Please complete this field."),
+                  required: "Please complete this field.",
                   pattern:
                     name === "email"
                       ? {
                           value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                          message: t("Enter a valid email."),
+                          message: "Enter a valid email.",
                         }
                       : undefined,
                   maxLength: 254,
@@ -79,8 +91,9 @@ export default function Contact() {
         ))}
         <Button busy={isSubmitting}>{t("Send message")}</Button>
         <p className="muted text-sm">
-          Messages are stored securely for administrator review. Please do not
-          include financial account numbers or identity documents.
+          {t(
+            "Messages are stored securely for administrator review. Please do not include financial account numbers or identity documents.",
+          )}
         </p>
       </form>
     </div>

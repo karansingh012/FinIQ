@@ -1,3 +1,4 @@
+import { catalogueQuery } from "../lib/i18n";
 import React, { useState, useEffect } from "react";
 import { useApp, useApi } from "../lib/context";
 import {
@@ -26,11 +27,11 @@ export default function Catalog({ schemes = false }) {
     return () => clearTimeout(id);
   }, [q]);
   const params = new URLSearchParams({
-    q: query,
+    q: catalogueQuery(query),
     [schemes ? "category" : "topic"]: category,
     difficulty,
     region,
-    beneficiary,
+    beneficiary: catalogueQuery(beneficiary),
     page,
     size: 9,
   });
@@ -43,18 +44,19 @@ export default function Catalog({ schemes = false }) {
   return (
     <div className="catalog-page">
       <Heading
-        eyebrow={schemes ? "THE POLICY NAVIGATOR" : "YOUR LEARNING LIBRARY"}
+        eyebrow={t(schemes ? "THE POLICY NAVIGATOR" : "YOUR LEARNING LIBRARY")}
         title={t(schemes ? "Government schemes" : "My learning")}
-        description={
+        description={t(
           schemes
             ? "Discover what is relevant. Understand what to verify. Connect with official information."
-            : "Practical knowledge for everyday decisions. One short lesson at a time."
-        }
+            : "Practical knowledge for everyday decisions. One short lesson at a time.",
+        )}
       />
       {schemes && (
         <div className="info-banner">
-          Sourced demonstration catalogue · FinIQ does not determine
-          eligibility. Verify current rules with the official provider.
+          {t(
+            "Sourced demonstration catalogue \xB7 FinIQ does not determine eligibility. Verify current rules with the official provider.",
+          )}
         </div>
       )}
       <div className="filter-bar">
@@ -93,7 +95,9 @@ export default function Catalog({ schemes = false }) {
               ]
             : (topics.data || []).map((v) => v.name)
           ).map((v) => (
-            <option key={v}>{v}</option>
+            <option key={v} value={v}>
+              {t(v)}
+            </option>
           ))}
         </select>
         {schemes ? (
@@ -103,9 +107,11 @@ export default function Catalog({ schemes = false }) {
               value={region}
               onChange={(e) => filter(setRegion, e.target.value)}
             >
-              <option value="">All regions</option>
+              <option value="">{t("All regions")}</option>
               {(topics.data?.regions || []).map((value) => (
-                <option key={value}>{value}</option>
+                <option key={value} value={value}>
+                  {t(value)}
+                </option>
               ))}
             </select>
             <input
@@ -134,11 +140,13 @@ export default function Catalog({ schemes = false }) {
         {(data) => (
           <>
             <div className="list-summary">
-              {data.total}{" "}
-              {schemes
-                ? "schemes to explore"
-                : "lessons to build your confidence"}
-              <span>Made for everyday learning</span>
+              {t(data.total)} {t(" ")}
+              {t(
+                schemes
+                  ? "schemes to explore"
+                  : "lessons to build your confidence",
+              )}
+              <span>{t("Made for everyday learning")}</span>
             </div>
             {data.items.length ? (
               <div className="grid-cards">
