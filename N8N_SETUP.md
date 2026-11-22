@@ -4,9 +4,17 @@
 
 The owner is signed in to **karan9839**, observed online on the Pro plan at
 `https://karan9839.app.n8n.cloud`. n8n is not installed or hosted in FinIQ's containers.
-The workflow JSON files in `deploy/n8n/` are inactive configuration artifacts.
-Live import, credentials, testing and activation must be confirmed individually;
-their existence in Git is not evidence of a working automation.
+Live catalogue workflow: [3jXzf6aswc83R5KZ](https://karan9839.app.n8n.cloud/workflow/3jXzf6aswc83R5KZ).
+Manually executed successfully against the public FinIQ API on 22 November 2026,
+then published. Schedule: `30 2 * * *` in explicit `Etc/UTC` (08:00 IST daily).
+The first clock-triggered execution is still pending; manual execution of its schedule
+branch passed. Execution payload retention is disabled.
+
+Report draft: [LdTlfQF6Y6UiyJ7y](https://karan9839.app.n8n.cloud/workflow/LdTlfQF6Y6UiyJ7y).
+Imported with the verified production API URLs and execution payload retention disabled.
+It remains unpublished pending owner entry of Custom Auth and Header Auth credentials,
+followed by positive/negative webhook tests. No protected webhook success is claimed.
+Repository JSON exports remain inactive by default for safe import.
 
 ## Audited application APIs
 
@@ -37,9 +45,10 @@ mail credential. Polling user profiles and emailing learners is not enabled.
    five numerical aggregate fields returned. Region, occupation, risk rows, user IDs,
    emails and login tokens are not included in the final response.
 
-Set n8n's non-secret variable `FINIQ_BASE_URL` to the verified HTTPS origin, without
-a trailing slash. Import each JSON through the workflow editor's Import action.
-The JSON intentionally contains no production URL, credential ID or secret.
+The workflow nodes use the verified origin `https://finiq-public.onrender.com`.
+No n8n variable is required. JSON contains no credential ID or secret. Import it
+through the editor or paste its nodes into a new workflow; when pasting nodes,
+apply the documented workflow settings separately before execution.
 
 ## Credentials and privacy
 
@@ -102,7 +111,7 @@ workflows do not claim to send email or retain a historical activity-report arch
 
 ## Troubleshooting
 
-- `FINIQ_BASE_URL` missing: set the n8n variable; never point Cloud at localhost.
+- Wrong API host: update the HTTPS node URLs and credential allowed domain together; never point Cloud at localhost.
 - 401 on login: verify the credential's JSON body and account status privately.
 - 403 on analytics: account role or institution membership is insufficient.
 - 404 on webhook: check path, test-listening state and published workflow state.

@@ -5,11 +5,18 @@
 Repository audited at `cca92b6623df2f89ebf87fe46d3f259adc821dc5`.
 Deployment work is on `codex/public-deployment-n8n`.
 Render workspace: **My Workspace** (`tea-d2veuh95pdvs73bc80ag`), confirmed by the owner.
-Public URL and live deployment ID: **pending provisioning and verification**.
+Public URL: **https://finiq-public.onrender.com**.
+Render service: `srv-dc19jrvf3r2c73c2rfdg` (Singapore, Free).
+Initial deployment `dep-dc19js7f3r2c73c2rhe0` reached **live** on 22 November 2026.
+HTTPS readiness and the complete public smoke test passed: registration, login,
+assessments, non-fallback ML classification, lesson completion, quiz, bookmarks,
+progress, recommendations, schemes, sourced retrieval and admin access denial.
 A new Render PostgreSQL 17 database, `finiq-public-db`, has been created in Singapore.
 Its free plan expires **22 December 2026 at 12:56 IST**. Migrate to a non-expiring
 database or approve an upgrade before then; this is a time-limited public demonstration.
-Do not treat a successful local build as a public deployment.
+A fresh deployment (`dep-dc19nk1ksfps7389l3e0`) also reached live. The same public
+synthetic learner then logged in successfully and retained the completed lesson,
+verifying external PostgreSQL persistence across application replacement.
 
 The existing local Compose installation and its PostgreSQL volume remain separate.
 There is no automatic migration of existing local users or learning data to the public database.
@@ -95,7 +102,8 @@ docker build -f deploy/render/Dockerfile -t finiq-render:verification .
 ```
 
 Verified locally: 10 frontend tests, 5 Python tests, image build, and a separate
-PostgreSQL-backed smoke test under **512 MB RAM / 0.5 CPU**. Observed memory after
+PostgreSQL-backed smoke test under **512 MB RAM / 0.5 CPU**. The managed-URI configuration also reached healthy
+under **512 MB RAM / 0.1 CPU**. Observed memory after
 the smoke test was approximately **378 MiB**, without an OOM kill. This is a small
 functional test, not a concurrency or load benchmark. The backend's existing full
 JUnit suite has not been rerun for this deployment package.

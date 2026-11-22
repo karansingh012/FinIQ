@@ -40,14 +40,19 @@
       ],
       "parameters": {
         "method": "POST",
-        "url": "={{ (() => { const u = $vars.FINIQ_BASE_URL; if (!u || !/^https:\\/\\/[^/]+$/.test(u)) throw new Error('Set FINIQ_BASE_URL to the verified HTTPS origin without a trailing slash'); return u; })() + '/api/v1/auth/login' }}",
+        "url": "https://finiq-public.onrender.com/api/v1/auth/login",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpCustomAuth",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "{}",
         "options": {
-          "timeout": 120000
+          "timeout": 120000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
         }
       }
     },
@@ -61,7 +66,7 @@
         0
       ],
       "parameters": {
-        "url": "={{ (() => { const u = $vars.FINIQ_BASE_URL; if (!u || !/^https:\\/\\/[^/]+$/.test(u)) throw new Error('Set FINIQ_BASE_URL to the verified HTTPS origin without a trailing slash'); return u; })() + '/api/v1/admin/analytics?days=7' }}",
+        "url": "https://finiq-public.onrender.com/api/v1/admin/analytics?days=7",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -72,7 +77,12 @@
           ]
         },
         "options": {
-          "timeout": 30000
+          "timeout": 30000,
+          "redirect": {
+            "redirect": {
+              "followRedirects": false
+            }
+          }
         }
       }
     },

@@ -26,7 +26,7 @@
           "interval": [
             {
               "field": "cronExpression",
-              "expression": "0 8 * * *"
+              "expression": "30 2 * * *"
             }
           ]
         }
@@ -42,7 +42,7 @@
         0
       ],
       "parameters": {
-        "url": "={{ (() => { const u = $vars.FINIQ_BASE_URL; if (!u || !/^https:\\/\\/[^/]+$/.test(u)) throw new Error('Set FINIQ_BASE_URL to the verified HTTPS origin without a trailing slash'); return u; })() + '/api/v1/lessons?size=1' }}",
+        "url": "https://finiq-public.onrender.com/api/v1/lessons?size=1",
         "options": {
           "timeout": 120000
         }
@@ -99,7 +99,7 @@
   },
   "settings": {
     "executionOrder": "v1",
-    "timezone": "Asia/Kolkata",
+    "timezone": "Etc/UTC",
     "saveDataErrorExecution": "none",
     "saveDataSuccessExecution": "none",
     "saveManualExecutions": false,
