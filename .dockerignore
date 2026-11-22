@@ -1,0 +1,12 @@
+.git
+.env
+.runtime
+.tools
+**/node_modules
+**/dist
+**/target
+**/.venv
+**/__pycache__
+**/.pytest_cache
+**/*.log
+.DS_Store

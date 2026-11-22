@@ -1,0 +1,148 @@
+{
+  "name": "FinIQ \u2014 Authenticated activity report",
+  "nodes": [
+    {
+      "id": "manual",
+      "name": "Manual verification",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "webhook",
+      "name": "Authenticated report request",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "finiq-activity-report",
+        "authentication": "headerAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "login",
+      "name": "Sign in with stored credential",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        0
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ (() => { const u = $vars.FINIQ_BASE_URL; if (!u || !/^https:\\/\\/[^/]+$/.test(u)) throw new Error('Set FINIQ_BASE_URL to the verified HTTPS origin without a trailing slash'); return u; })() + '/api/v1/auth/login' }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpCustomAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {
+          "timeout": 120000
+        }
+      }
+    },
+    {
+      "id": "analytics",
+      "name": "Read existing analytics API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        0
+      ],
+      "parameters": {
+        "url": "={{ (() => { const u = $vars.FINIQ_BASE_URL; if (!u || !/^https:\\/\\/[^/]+$/.test(u)) throw new Error('Set FINIQ_BASE_URL to the verified HTTPS origin without a trailing slash'); return u; })() + '/api/v1/admin/analytics?days=7' }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{$json.token}}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      }
+    },
+    {
+      "id": "summary",
+      "name": "Aggregate report only",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        780,
+        0
+      ],
+      "parameters": {
+        "jsCode": "const keys=['learners','activeLearners','completions','averageScore','completionRate']; const report={service:'FinIQ',generatedAt:new Date().toISOString(),windowDays:7}; for(const key of keys){if(typeof $json[key]!=='number'||!Number.isFinite($json[key]))throw new Error('Invalid analytics response');report[key]=$json[key];}return [{json:report}];"
+      }
+    }
+  ],
+  "connections": {
+    "Manual verification": {
+      "main": [
+        [
+          {
+            "node": "Sign in with stored credential",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Authenticated report request": {
+      "main": [
+        [
+          {
+            "node": "Sign in with stored credential",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sign in with stored credential": {
+      "main": [
+        [
+          {
+            "node": "Read existing analytics API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read existing analytics API": {
+      "main": [
+        [
+          {
+            "node": "Aggregate report only",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false
+  },
+  "active": false
+}

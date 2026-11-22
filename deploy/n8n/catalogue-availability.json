@@ -1,0 +1,109 @@
+{
+  "name": "FinIQ \u2014 Daily catalogue availability",
+  "nodes": [
+    {
+      "id": "manual",
+      "name": "Manual verification",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "schedule",
+      "name": "Daily at 08:00 IST",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * *"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "catalogue",
+      "name": "Read public lessons",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        260,
+        0
+      ],
+      "parameters": {
+        "url": "={{ (() => { const u = $vars.FINIQ_BASE_URL; if (!u || !/^https:\\/\\/[^/]+$/.test(u)) throw new Error('Set FINIQ_BASE_URL to the verified HTTPS origin without a trailing slash'); return u; })() + '/api/v1/lessons?size=1' }}",
+        "options": {
+          "timeout": 120000
+        }
+      }
+    },
+    {
+      "id": "summary",
+      "name": "Catalogue availability report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        520,
+        0
+      ],
+      "parameters": {
+        "jsCode": "if (!Array.isArray($json.items) || !Number.isInteger($json.total) || $json.total < 1) throw new Error('FinIQ catalogue is unavailable'); return [{json:{service:'FinIQ',checkedAt:new Date().toISOString(),status:'available',lessonCount:$json.total}}];"
+      }
+    }
+  ],
+  "connections": {
+    "Manual verification": {
+      "main": [
+        [
+          {
+            "node": "Read public lessons",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Daily at 08:00 IST": {
+      "main": [
+        [
+          {
+            "node": "Read public lessons",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read public lessons": {
+      "main": [
+        [
+          {
+            "node": "Catalogue availability report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "saveDataErrorExecution": "none",
+    "saveDataSuccessExecution": "none",
+    "saveManualExecutions": false,
+    "saveExecutionProgress": false
+  },
+  "active": false
+}
